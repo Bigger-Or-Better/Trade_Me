@@ -31,7 +31,9 @@ const FeaturedItem = ({
 					<h3>
 						<Link href={`/listing/${id}/${slug}`}>{title}</Link>
 					</h3>
-					<HeartButton currentUser={currentUser} listingId={id} />
+					{
+					currentUser && <HeartButton currentUser={currentUser} listingId={id} />
+					}
 				</div>
 
 				<ul className="featured-info">
@@ -64,7 +66,7 @@ const FeaturedItem = ({
 					</li>
 				</ul>
 
-				<ul className="priceing d-flex justify-content-between align-items-center">
+				<ul className="pricing d-flex justify-content-between align-items-center">
 					<li>
 						<Link
 							href={`/listings/?category=${category}`}
