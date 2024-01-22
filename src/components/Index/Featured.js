@@ -7,6 +7,9 @@ import FeaturedItem from "./FeaturedItem";
 import { toast } from "react-hot-toast";
 
 const Featured = ({ currentUser }) => {
+
+	console.log(currentUser)
+
 	const [listings, setListings] = useState([]);
 	const [cat, setCat] = useState("all");
 
