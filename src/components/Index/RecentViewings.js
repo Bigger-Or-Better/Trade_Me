@@ -27,7 +27,7 @@ const RecentViewings = ({ currentUser }) => {
 	}, []);
 
 	if (currentUser){
-	
+		console.log(currentUser);
 		let myHistory_array = currentUser.myHistory.split(",").reverse();
 		let smallArray = [];
 	
