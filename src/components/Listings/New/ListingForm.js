@@ -155,7 +155,7 @@ const ListingForm = () => {
 							</div>
 						</div>
 
-						<div className="col-lg-12">
+						{/* <div className="col-lg-12">
 							<Input
 								label="Address"
 								id="address"
@@ -166,7 +166,7 @@ const ListingForm = () => {
 								errors={errors}
 								required
 							/>
-						</div>
+						</div> */}
 
 						<div className="col-lg-12">
 							<div className="form-group">
@@ -178,6 +178,7 @@ const ListingForm = () => {
 										<RichTextEditor
 											controls={RTEControls}
 											{...field}
+											placeholder="Features"
 										/>
 									)}
 								/>
@@ -189,7 +190,6 @@ const ListingForm = () => {
 								label="Price"
 								id="price"
 								type="number"
-								placeholder="Features"
 								disabled={isLoading}
 								register={register}
 								errors={errors}
