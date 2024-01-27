@@ -37,7 +37,7 @@ const SignupForm = () => {
 			.post("/api/register", data)
 			.then(() => {
 				toast.success("Registration success!");
-				// router.push("/auth/signin");
+				router.push("/auth/signin");
 			})
 			.catch((error) => {
 				toast.error("Something went wrong!");

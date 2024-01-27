@@ -18,10 +18,11 @@ import DetailsImages from "./DetailsImages";
 
 
 const Index = ({ currentUser, listing, reviews }) => {
+	console.log(currentUser);
+
 	// 1) Check if History Exists
 	if (currentUser){
 		let myHistory_string = currentUser.myHistory;
-		let myHistory_array = myHistory_string.split(",")
 		let clear = true;
 
 		if (!myHistory_string){
@@ -33,6 +34,7 @@ const Index = ({ currentUser, listing, reviews }) => {
 		}
 
 		//  2) Loop through and check for current viewing is in history already
+		let myHistory_array = myHistory_string.split(",")
 		myHistory_array.forEach(listItem => {
 			if (listItem == listing.id){
 				clear = false;

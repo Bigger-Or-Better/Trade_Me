@@ -75,9 +75,9 @@ const FeaturedItem = ({
 							{category}
 						</Link>
 					</li>
-					<li>
+					{/* <li>
 						<span className="price">{formattedPrice(price)}</span>
-					</li>
+					</li> */}
 				</ul>
 			</div>
 		</div>
