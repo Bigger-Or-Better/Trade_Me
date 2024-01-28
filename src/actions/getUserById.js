@@ -11,7 +11,7 @@ export default async function getUserById(params) {
 			include: {
 				profile: true,
 				listings: {
-					take: 6,
+					// take: 6,
 				},
 				// favourites: true,
 			},

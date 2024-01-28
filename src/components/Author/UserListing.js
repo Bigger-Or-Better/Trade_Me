@@ -2,6 +2,7 @@ import React from "react";
 import ListingItem from "./ListingItem";
 
 const UserListing = ({ listings, user, currentUser }) => {
+	// console.log(listings, "Listings");
 	return (
 		<div className="featured-area bg-color-181616 ptb-100">
 			<div className="container">

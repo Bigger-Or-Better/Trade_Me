@@ -81,6 +81,7 @@ model Listing {
     status         Status   @default(Pending)
     latitude       Float
     longitude      Float
+    tradeOffers    String
 
     user       User        @relation(fields: [userId], references: [id], onDelete: Cascade)
     reviews    Review[]

@@ -8,7 +8,8 @@ import { getCurrentUser } from "@/actions/getCurrentUser";
 const page = async ({ params }) => {
 	const user = await getUserById(params);
 	const currentUser = await getCurrentUser();
-
+	console.log(user, "user");
+	// console.log(currentUser, "currentUser")
 	return (
 		<>
 			<PageBanner pageTitle="Author's Details" />

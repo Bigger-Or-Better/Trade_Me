@@ -37,7 +37,7 @@ const ListingItem = ({
 						<HeartButton currentUser={currentUser} listingId={id} />
 					</div>
 
-					<ul className="featured-info">
+					{/* <ul className="featured-info">
 						<li>
 							<i className="ri-map-pin-line"></i>
 							{location_value}
@@ -50,7 +50,7 @@ const ListingItem = ({
 							<i className="ri-user-line"></i>
 							{user}
 						</li>
-					</ul>
+					</ul> */}
 
 					<ul className="pricing d-flex justify-content-between align-items-center">
 						<li>
@@ -61,11 +61,11 @@ const ListingItem = ({
 								{category}
 							</Link>
 						</li>
-						<li>
+						{/* <li>
 							<span className="price">
 								{formattedPrice(price)}
 							</span>
-						</li>
+						</li> */}
 					</ul>
 				</div>
 			</div>
