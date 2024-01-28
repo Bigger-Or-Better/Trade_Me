@@ -47,7 +47,14 @@ const ListingForm = () => {
 			address: "",
 			features: "",
 			category: "",
-			location: null,
+			location: //arbitrary
+			{
+				flag: "US",
+				label:"United States",
+				latlng: [40, 111],
+				region: "Americas",
+				value: "US"
+			},
 			price: 1,
 		},
 	});
@@ -65,8 +72,9 @@ const ListingForm = () => {
 			.post("/api/listings/create", data)
 			.then((response) => {
 				toast.success("Listing created!");
-				router.refresh();
-				reset();
+				console.log(response, data)
+				// router.refresh();
+				// reset();
 			})
 			.catch((error) => {
 				toast.error("Something went wrong.");
@@ -121,14 +129,14 @@ const ListingForm = () => {
 							/>
 						</div>
 
-						<div className="col-lg-12">
+						{/* <div className="col-lg-12">
 							<CountrySelect
 								value={location}
 								onChange={(value) =>
 									setCustomValue("location", value)
 								}
 							/>
-						</div>
+						</div> */}
 
 						<div className="col-lg-12">
 							<div className="form-group">
