@@ -89,6 +89,16 @@ const Navbar = ({ currentUser }) => {
 											Listings
 										</Link>
 									</li>
+									<li className="nav-item">
+										<Link
+											href="/listings"
+											className={`nav-link ${
+												currentRoute === "/listings" ? "active" : "non-active"
+											}`}
+										>
+											Traders
+										</Link>
+									</li>
 									{/* <li className="nav-item">
 										<Link
 											href="/about-us"

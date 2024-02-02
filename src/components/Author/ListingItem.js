@@ -17,6 +17,7 @@ const ListingItem = ({
 	location_value,
 	currentUser,
 }) => {
+	// console.log(currentUser.id, user.id)
 	return (
 		<div className="col-lg-4 col-md-6">
 			<div className="single-featured box-shadow">
@@ -34,8 +35,10 @@ const ListingItem = ({
 						<h3>
 							<Link href={`/listing/${id}/${slug}`}>{title}</Link>
 						</h3>
-						<HeartButton currentUser={currentUser} listingId={id} />
 					</div>
+					{(currentUser.id != user.id) ? 
+						<HeartButton currentUser={currentUser} listingId={id} /> : <></>
+					}
 
 					{/* <ul className="featured-info">
 						<li>

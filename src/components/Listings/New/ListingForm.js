@@ -56,7 +56,8 @@ const ListingForm = () => {
 				region: "Americas",
 				value: "US"
 			},
-			price: 1,
+			tradeOffers:"",
+			price: 0,
 		},
 	});
 

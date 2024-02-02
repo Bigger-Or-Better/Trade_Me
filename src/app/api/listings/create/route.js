@@ -21,6 +21,7 @@ export async function POST(request) {
 		features,
 		category,
 		location,
+		tradeOffers,
 		price,
 	} = body;
 
@@ -59,6 +60,7 @@ export async function POST(request) {
 			location_value: "United States", //arbitrary
 			latitude: 38, //arbitrary
 			longitude: -97, //arbitrary
+			tradeOffers,
 			userId: currentUser.id,
 		},
 	});

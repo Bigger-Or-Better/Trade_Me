@@ -55,7 +55,20 @@ const UserMenu = ({ currentUser }) => {
 											</Link>
 										</li>
 									)}
-									<li>
+																		<li>
+										<Link
+											href={`/author/${currentUser.id}`}
+											className={`user-nav-link ${
+												currentRoute === `/author/${currentUser.id}`
+													? "active"
+													: "non-active"
+												}`}
+										>
+											<i className="ri-focus-3-line"></i>{" "}
+											Preview Profile
+										</Link>
+									</li>
+									{/* <li>
 										<Link 
 											href="/listings/my-listings"
 											className={`user-nav-link ${
@@ -67,9 +80,9 @@ const UserMenu = ({ currentUser }) => {
 											<i className="ri-list-check"></i> My
 											Listings
 										</Link>
-									</li>
-									<li>
-										{/* <Link 
+									</li> */}
+									{/* <li>
+										<Link 
 											href="/listings/new"
 											className={`user-nav-link ${
 												currentRoute === "/listings/new"
@@ -79,8 +92,8 @@ const UserMenu = ({ currentUser }) => {
 										>
 											<i className="ri-menu-add-line"></i>{" "}
 											Add Listings
-										</Link> */}
-									</li>
+										</Link>
+									</li> */}
 									<li>
 										<Link 
 											href="/listings/favourites"
@@ -120,20 +133,7 @@ const UserMenu = ({ currentUser }) => {
 											Settings
 										</Link>
 									</li>
-									<li>
-										<Link
-											href={`/author/${currentUser.id}`}
-											className={`user-nav-link ${
-												currentRoute === `/author/${currentUser.id}`
-													? "active"
-													: "non-active"
-												}`}
-										>
-											<i className="ri-focus-3-line"></i>{" "}
-											View My Profile
-										</Link>
-									</li>
-									
+
 									<hr />
 
 									<li>

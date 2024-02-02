@@ -38,7 +38,7 @@ const RightSidebar = ({ user }) => {
 								? user.profile.address
 								: "Place Not Added"}
 						</li>
-						<li>
+						{/* <li>
 							<i className="ri-phone-line"></i>
 							<a href={`tel:${user?.profile?.phone}`}>
 								{user?.profile?.phone
@@ -46,11 +46,11 @@ const RightSidebar = ({ user }) => {
 									: "Phone Not Added"}
 							</a>{" "}
 							<span>Call Now</span>
-						</li>
+						</li> */}
 					</ul>
 					
 					<ul className="contact-btn">
-						<li>
+						{/* <li>
 							<buttom className="default-btn">
 								<span>
 									Chat Via Whatsapp
@@ -62,7 +62,7 @@ const RightSidebar = ({ user }) => {
 									/>
 								</span>
 							</buttom>
-						</li>
+						</li> */}
 						<li>
 							<Link
 								href={`/author/${user.id}`}
@@ -82,7 +82,7 @@ const RightSidebar = ({ user }) => {
 					</ul>
 				</div>
 
-				<div className="bg-right-sidebar">
+				{/* <div className="bg-right-sidebar">
 					<h3>Send Message</h3>
 					<form
 						className="contact-form"
@@ -116,9 +116,9 @@ const RightSidebar = ({ user }) => {
 							</button>
 						</div>
 					</form>
-				</div>
+				</div> */}
 
-				<div className="bg-right-sidebar">
+				{/* <div className="bg-right-sidebar">
 					<h3>Attachment</h3>
 					<ul className="attachment-btn">
 						<li>
@@ -144,7 +144,7 @@ const RightSidebar = ({ user }) => {
 							</button>
 						</li>
 					</ul>
-				</div>
+				</div> */}
 			</div>
 		</div>
 	);

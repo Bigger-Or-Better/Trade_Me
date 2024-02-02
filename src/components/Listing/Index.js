@@ -18,7 +18,7 @@ import DetailsImages from "./DetailsImages";
 
 
 const Index = ({ currentUser, listing, reviews }) => {
-	console.log(currentUser);
+	// console.log(currentUser);
 
 	// 1) Check if History Exists
 	if (currentUser){
@@ -30,7 +30,7 @@ const Index = ({ currentUser, listing, reviews }) => {
 		}
 		// 1a)If Exists, add comma at the end for syntax and order
 		else {
-			myHistory_string = myHistory_string + ",";
+			myHistory_string = myHistory_string;
 		}
 
 		//  2) Loop through and check for current viewing is in history already
@@ -110,12 +110,12 @@ const Index = ({ currentUser, listing, reviews }) => {
 
 							<Features {...listing} />
 
-							{listing && (
+							{/* {listing && (
 								<MapWithNoSSR
 									latitude={listing.latitude}
 									longitude={listing.longitude}
 								/>
-							)}
+							)} */}
 
 							<Reviews reviews={reviews} />
 

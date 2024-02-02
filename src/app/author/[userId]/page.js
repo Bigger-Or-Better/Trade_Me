@@ -8,15 +8,15 @@ import { getCurrentUser } from "@/actions/getCurrentUser";
 const page = async ({ params }) => {
 	const user = await getUserById(params);
 	const currentUser = await getCurrentUser();
-	console.log(user, "user");
-	// console.log(currentUser, "currentUser")
+	// console.log(user.id, "user", currentUser.id, "currentUser")
+	
 	return (
 		<>
 			<PageBanner pageTitle="Author's Details" />
 			<AuthorDetails user={user} />
 			<UserListing
 				listings={user?.listings && user.listings}
-				user={user.name}
+				user={user}
 				currentUser={currentUser}
 			/>
 		</>
