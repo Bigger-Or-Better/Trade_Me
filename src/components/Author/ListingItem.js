@@ -36,9 +36,11 @@ const ListingItem = ({
 							<Link href={`/listing/${id}/${slug}`}>{title}</Link>
 						</h3>
 					</div>
-					{(currentUser.id != user.id) ? 
-						<HeartButton currentUser={currentUser} listingId={id} /> : <></>
-					}
+
+					{((currentUser != null) && (currentUser.id != user.id) ) ? 
+					
+					<HeartButton currentUser={currentUser} listingId={id} /> : <></>}			
+					
 
 					{/* <ul className="featured-info">
 						<li>
