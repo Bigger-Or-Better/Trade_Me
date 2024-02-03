@@ -30,7 +30,7 @@ const Index = ({ currentUser, listing, reviews }) => {
 		}
 		// 1a)If Exists, add comma at the end for syntax and order
 		else {
-			myHistory_string = myHistory_string;
+			myHistory_string = myHistory_string + ",";
 		}
 
 		//  2) Loop through and check for current viewing is in history already
@@ -43,10 +43,10 @@ const Index = ({ currentUser, listing, reviews }) => {
 
 		if (clear == true){
 			// 3a) if current history is 10, remove 1
-			if (myHistory_array.length >= 10){
+			if (myHistory_array.length >= 11){
 				myHistory_array.shift();
 				myHistory_array.toString();
-				myHistory_string = myHistory_array + ","
+				myHistory_string = myHistory_array
 			}
 
 			// 3b) add current viewing to existing history

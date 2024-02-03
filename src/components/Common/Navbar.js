@@ -91,9 +91,9 @@ const Navbar = ({ currentUser }) => {
 									</li>
 									<li className="nav-item">
 										<Link
-											href="/listings"
+											href="/traders"
 											className={`nav-link ${
-												currentRoute === "/listings" ? "active" : "non-active"
+												currentRoute === "/traders" ? "active" : "non-active"
 											}`}
 										>
 											Traders
