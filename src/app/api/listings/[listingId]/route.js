@@ -20,6 +20,7 @@ export async function DELETE(request, { params }) {
 	// if (!findListing) {
 	// 	throw new Error("Not found!");
 	// }
+
 	const deletedListing = await prisma.listing.delete({
 		where: {
 			id: parseInt(listingId),

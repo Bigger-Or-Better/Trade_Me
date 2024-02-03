@@ -55,7 +55,12 @@ const UserMenu = ({ currentUser }) => {
 											</Link>
 										</li>
 									)}
-																		<li>
+									
+									
+
+									
+
+									<li>
 										<Link
 											href={`/author/${currentUser.id}`}
 											className={`user-nav-link ${
