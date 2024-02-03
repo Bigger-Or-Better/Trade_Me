@@ -96,13 +96,13 @@ const SignupForm = () => {
 						</div>
 
 						<div className="passwordHelp"> 
-							<span className="loginOption">
+							{/* <span className="loginOption">
 								<Link
 									href="/"	
 								>
 									Forgot Password
 								</Link>
-							</span>
+							</span> */}
 							<span 
 								className="loginOption"
 								onClick={onShowToggle}
