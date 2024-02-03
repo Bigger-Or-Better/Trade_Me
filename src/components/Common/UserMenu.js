@@ -57,9 +57,20 @@ const UserMenu = ({ currentUser }) => {
 									)}
 									
 									
-
-									
-
+										<li>
+											<Link 
+												href="/profileInfo"
+												className={`user-nav-link ${
+													currentRoute === "/profileInfo"
+														? "active"
+														: "non-active"
+												}`}
+											>
+												<i className="ri-dashboard-line"></i>{" "}
+												Profile Info
+											</Link>
+										</li>
+										
 									<li>
 										<Link
 											href={`/author/${currentUser.id}`}
