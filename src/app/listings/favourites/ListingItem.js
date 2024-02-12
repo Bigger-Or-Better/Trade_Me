@@ -23,6 +23,7 @@ const ListingItem = ({
 	},
 	currentUser,
 }) => {
+	console.log("listing_start", user, "listing_end")
 	return (
 		<div className="col-lg-4">
 			<div className="single-featured">

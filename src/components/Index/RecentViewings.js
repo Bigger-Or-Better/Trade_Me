@@ -12,6 +12,34 @@ const RecentViewings = ({ currentUser }) => {
 	const [myHistory_listings, setMyHistory_listings] = useState([]);
 	
 	useEffect(() => {
+
+		const fetchListing = async (id) => {
+			// await axios
+			// 	.get(`/api/listings/myHistory?id=${id}`)
+			// 	.then((response) => {
+					// console.log(response.data)
+			// 	})
+			// 	.catch((error) => {
+			// 		toast.error("Something went wromg!");
+			// 	});
+		};
+
+
+		if (currentUser){
+		let myHistory_array = currentUser.myHistory.split(",").reverse();
+		// let smallArray = [];
+			console.log(myHistory_listings, myHistory_array)
+
+			myHistory_array.forEach(id => {
+				fetchListing(id)
+			});
+		}
+		
+
+		
+		
+
+
 		const fetchData = async () => {
 			await axios
 				.get(`/api/listings/featured?category=all`)
@@ -26,22 +54,27 @@ const RecentViewings = ({ currentUser }) => {
 		fetchData();
 	}, []);
 
+
+
+
+
+
 	if (currentUser){
 		// console.log(currentUser);
 		// let myHistory_array = currentUser.myHistory.split(",").reverse();
 		// let smallArray = [];
 	
-		const getFeatured = async (cat) => {
-			setCat(cat);
-			await axios
-				.get(`/api/listings/featured?category=${cat}`)
-				.then((response) => {
-					setListings(response.data);
-				})
-				.catch((error) => {
-					toast.error("Something went wromg!");
-				});
-		};
+		// const getFeatured = async (cat) => {
+		// 	setCat(cat);
+		// 	await axios
+		// 		.get(`/api/listings/featured?category=${cat}`)
+		// 		.then((response) => {
+		// 			setListings(response.data);
+		// 		})
+		// 		.catch((error) => {
+		// 			toast.error("Something went wromg!");
+		// 		});
+		// };
 		
 		return (
 			<div className="offer-area bg-color-fffcf8">

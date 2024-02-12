@@ -1,21 +1,23 @@
 import React from "react";
-import { redirect } from "next/navigation";
 import PageBanner from "@/components/Common/PageBanner";
 import { getCurrentUser } from "@/actions/getCurrentUser";
-import DashboardStats from "@/components/ProfileInfo/DashboardStats";
-import countData from "@/actions/getCountData";
+import SettingsForm from "@/components/Profile/SettingsForm";
+import InfoUpdateForm from "@/components/Profile/InfoUpdateForm";
+export const dynamic = "force-dynamic";
+import { redirect } from "next/navigation";
+import getListings from "@/actions/getListings";
 import LeftSidebar from "@/components/ProfileInfo/LeftSidebar";
 
-const page = async () => {
-	const { users, listings, blogPosts, reviews } = await countData();
+const page = async ({ searchParams }) => {
+	const {listings} = await getListings(searchParams);
 	const currentUser = await getCurrentUser();
 	const isAdmin = currentUser?.role === "ADMIN";
-	if (!currentUser) {
+	if (!isAdmin) {
 		redirect("/");
 	}
 	return (
 		<>
-			<PageBanner pageTitle="Dashboard" />
+			<PageBanner pageTitle="All listings" />
 
 			<div className="ptb-100">
 				<div className="container">
@@ -23,14 +25,9 @@ const page = async () => {
 						<div className="col-lg-4">
 						 	<LeftSidebar />
 						</div>
-
 						<div className="col-lg-8">
-							<DashboardStats
-								users={users}
-								listings={listings}
-								blogPosts={blogPosts}
-								reviews={reviews}
-							/>
+							<SettingsForm currentUser={currentUser} />
+							<InfoUpdateForm currentUser={currentUser?.profile} />
 						</div>
 					</div>
 				</div>

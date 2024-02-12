@@ -74,7 +74,7 @@ const ListingForm = () => {
 			.post("/api/listings/create", data)
 			.then((response) => {
 				toast.success("Listing created!");
-				console.log(response, data)
+				// console.log(response, data)
 				// router.refresh();
 				// reset();
 			})

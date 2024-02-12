@@ -73,7 +73,7 @@ const InfoUpdateForm = ({ currentUser }) => {
 								required
 							/>
 						</div>
-						<div className="form-group">
+						{/* <div className="form-group">
 							<Input
 								id="gender"
 								placeholder="Gender"
@@ -82,7 +82,7 @@ const InfoUpdateForm = ({ currentUser }) => {
 								errors={errors}
 								required
 							/>
-						</div>
+						</div> */}
 						<div className="form-group">
 							<Input
 								id="address"
@@ -103,7 +103,7 @@ const InfoUpdateForm = ({ currentUser }) => {
 								required
 							/>
 						</div>
-						<div className="form-group">
+						{/* <div className="form-group">
 							<Input
 								id="website"
 								placeholder="Website"
@@ -111,8 +111,8 @@ const InfoUpdateForm = ({ currentUser }) => {
 								register={register}
 								errors={errors}
 							/>
-						</div>
-						<div className="form-group">
+						</div> */}
+						{/* <div className="form-group">
 							<Input
 								id="twitter"
 								placeholder="Twitter"
@@ -120,8 +120,8 @@ const InfoUpdateForm = ({ currentUser }) => {
 								register={register}
 								errors={errors}
 							/>
-						</div>
-						<div className="form-group">
+						</div> */}
+						{/* <div className="form-group">
 							<Input
 								id="facebook"
 								placeholder="Facebook"
@@ -129,8 +129,8 @@ const InfoUpdateForm = ({ currentUser }) => {
 								register={register}
 								errors={errors}
 							/>
-						</div>
-						<div className="form-group">
+						</div> */}
+						{/* <div className="form-group">
 							<Input
 								id="linkedin"
 								placeholder="Linkedin"
@@ -138,8 +138,8 @@ const InfoUpdateForm = ({ currentUser }) => {
 								register={register}
 								errors={errors}
 							/>
-						</div>
-						<div className="form-group">
+						</div> */}
+						{/* <div className="form-group">
 							<Input
 								id="youtube"
 								placeholder="Youtube"
@@ -147,7 +147,7 @@ const InfoUpdateForm = ({ currentUser }) => {
 								register={register}
 								errors={errors}
 							/>
-						</div>
+						</div> */}
 						<div className="form-group mb-0">
 							<Button
 								label="Update My Info"

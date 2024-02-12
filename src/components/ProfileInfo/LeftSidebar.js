@@ -62,12 +62,30 @@ const LeftSidebar = () => {
             >
               Creact Blog Post
             </Link>
-            <hr></hr>
-            <li>Settings</li>
-            <li>Listings</li>
-            <li>Reviews</li>
-            <li>Friends</li>
           </li>
+          <hr></hr>  
+          <li>
+            <Link 
+              href="/profileInfo/betaTesting/settings"
+              className={`db-link ${
+                currentRoute === "/profileInfo/betaTesting/settings" ? "active" : "non-active"
+              }`}
+            >
+              Settings
+            </Link>
+          </li>
+          <li>
+            <Link 
+              href="/profileInfo/betaTesting/listings"
+              className={`db-link ${
+                currentRoute === "/profileInfo/betaTesting/listings" ? "active" : "non-active"
+              }`}
+            >
+              Listings
+            </Link>
+          </li>
+          <li>Reviews</li>
+          <li>Friends</li>
         </ul>
       </div>
     </>

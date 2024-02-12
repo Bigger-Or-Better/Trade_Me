@@ -1,9 +1,13 @@
 import React from "react";
 import ListingItem from "./ListingItem";
 
-const UserListing = ({ listings, user, currentUser }) => {
+const UserListing = ({ listings, user, currentUser, params }) => {
+	// console.log("listings_start",listings,"listings_end")
+	console.log("user_start", user, "user_end")
+	console.log("currentuser_start",currentUser,"currentUser_end")
 	if (currentUser){
-		console.log(user.id, "user", currentUser.id, "currentUser")
+		// console.log(user.id, "user", currentUser.id, "currentUser")
+		// console.log(params, "params")
 	}
 	
 	return (

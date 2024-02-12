@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 
 const DashboardStats = ({ listings, blogPosts, users, reviews }) => {
+	console.log(users, listings, blogPosts, reviews)
 	return (
 		<div className="row">
 			<div className="col-lg-6 col-md-6 mb-4">
