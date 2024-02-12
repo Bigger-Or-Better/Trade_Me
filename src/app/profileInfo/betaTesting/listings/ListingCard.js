@@ -5,12 +5,11 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
-const ListingCard = ({ listings,  currentUser, favourites }) => {
-	// console.log("currentUser_start", currentUser, "currentUser_end")
-	console.log("favourites_start",favourites,"favourites_end")
-	// console.log('listings_start',listings,'listings_end')
-	
-	const [isPosted, setIsPosted] = useState(true);
+const ListingCard = ({ postedListings, likedListings, currentUser}) => {
+	console.log("postedListings_start",postedListings,"postedListings_end")
+	console.log("likedListings_start",likedListings,"likedListings_end")
+
+	const [listingView, setListingView] = useState("Posted");
 
 	const router = useRouter();
 	const deleteListing = async (listingId) => {
@@ -30,26 +29,50 @@ const ListingCard = ({ listings,  currentUser, favourites }) => {
 		}
 	};
 
-	const onShowPosted = () => {
-		console.log("posted")
+	const alterView = (e) =>{
+		console.log(e.target.innerHTML);
+		setListingView(e.target.innerHTML)
 	}
-	const onShowLiked = () => {
-		console.log("liked")
-	}
+
 	return (
-		<div className="row">
+		<div className={'row'}>
 			<div>
-				<button onClick={onShowPosted}>Posted</button>
-				<button onClick={onShowLiked}>Liked</button>
+				<button onClick={alterView}>Posted</button>
+				<button onClick={alterView}>Liked</button>
 			</div>
-			{listings.map((list) => ( //if posted (different if liked)
+
+		{
+			((listingView == "Posted") ?
+			postedListings.map((list) => (
+				<ListingItem
+					cUser = {currentUser}	
+					key={list.id}
+					{...list}
+					onDelete={() => deleteListing(list.id)}
+					view={listingView}
+				/>
+			))
+			:
+			likedListings.map((list) => (
+				<ListingItem
+					cUser = {currentUser}	
+					key={list.id}
+					{...list}
+					onDelete={() => deleteListing(list.id)}
+					view={listingView}
+				/>
+			))
+			 )
+		}
+
+			{/* {listings.map((list) => ( //if posted (different if liked)
 				<ListingItem
 					userName={currentUser.name} //wrong
 					key={list.id}
 					{...list}
 					onDelete={() => deleteListing(list.id)}
 				/>
-			))}
+			))} */}
 		</div>
 	);
 };

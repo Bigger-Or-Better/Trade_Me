@@ -14,18 +14,13 @@ const page = async ({ searchParams }) => {
 	const currentUser = await getCurrentUser();
 	const user = await getUserById({ userId: `${currentUser.id}` });
 	const favourites = await getMyFavourites();
-	const newFav = []
+	const newFav = [];
+
 	favourites.forEach(item => {
 		newFav.push(item.listing);
 	});
 	
 
-	// const onShowPosted = () => {
-	// 	console.log("posted")
-	// }
-	// const onShowLiked = () => {
-	// 	console.log("liked")
-	// }
 	return (
 		<>
 			<PageBanner pageTitle="All listings" />
@@ -36,12 +31,12 @@ const page = async ({ searchParams }) => {
 						<div className="col-lg-4">
 						 	<LeftSidebar />
 						</div>
-		
 						<div className="col-lg-8">
-
-							{/* <ListingCard listings={listings} currentUser={currentUser} /> */}
-							{/* <ListingCard listings={user?.listings && user.listings} currentUser={currentUser} favourites={favourites}/> *Posted */}
-							<ListingCard listings={newFav} currentUser={currentUser} favourites={favourites}/> Favourites
+							<ListingCard 
+								postedListings={user?.listings && user.listings}
+								likedListings = {newFav} 
+								currentUser={currentUser} 
+								/> 							
 						</div>
 					</div>
 				</div>
