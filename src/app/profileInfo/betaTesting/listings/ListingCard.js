@@ -6,10 +6,12 @@ import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
 const ListingCard = ({ postedListings, likedListings, currentUser}) => {
-	console.log("postedListings_start",postedListings,"postedListings_end")
-	console.log("likedListings_start",likedListings,"likedListings_end")
+	// console.log("postedListings_start",postedListings,"postedListings_end")
+	// console.log("likedListings_start",likedListings,"likedListings_end")
 
 	const [listingView, setListingView] = useState("Posted");
+	// const [viewableArray, setViewableArray] = useState([postedListings])
+	let viewableArray = postedListings;
 
 	const router = useRouter();
 	const deleteListing = async (listingId) => {
@@ -31,48 +33,61 @@ const ListingCard = ({ postedListings, likedListings, currentUser}) => {
 
 	const alterView = (e) =>{
 		console.log(e.target.innerHTML);
-		setListingView(e.target.innerHTML)
+		if (e.target.innerHTML.includes("Posted")){ 
+			setListingView("Posted");
+			// setViewableArray(postedListings);
+			viewableArray = postedListings
+		}
+		else { 
+			setListingView("Liked");
+			// setViewableArray(likedListings);
+			viewableArray = likedListings
+		}
+		console.log(viewableArray)
 	}
 
 	return (
 		<div className={'row'}>
 			<div>
-				<button onClick={alterView}>Posted</button>
-				<button onClick={alterView}>Liked</button>
+				<button onClick={alterView}>Posted: {postedListings.length}</button>
+				<button onClick={alterView}>Liked: {likedListings.length}</button>
 			</div>
 
 		{
-			((listingView == "Posted") ?
-			postedListings.map((list) => (
-				<ListingItem
-					cUser = {currentUser}	
-					key={list.id}
-					{...list}
-					onDelete={() => deleteListing(list.id)}
-					view={listingView}
-				/>
-			))
-			:
-			likedListings.map((list) => (
-				<ListingItem
-					cUser = {currentUser}	
-					key={list.id}
-					{...list}
-					onDelete={() => deleteListing(list.id)}
-					view={listingView}
-				/>
-			))
-			 )
-		}
+			// viewableArray.map((list) => (
+			// 	<ListingItem
+			// 		cUser = {currentUser}	
+			// 		key={list.id}
+			// 		{...list}
+			// 		onDelete={() => deleteListing(list.id)}
+			// 		view={listingView}
+			// 	/>
+			// ))
 
-			{/* {listings.map((list) => ( //if posted (different if liked)
-				<ListingItem
-					userName={currentUser.name} //wrong
-					key={list.id}
-					{...list}
-					onDelete={() => deleteListing(list.id)}
-				/>
-			))} */}
+
+
+			((listingView == "Posted") ?
+				postedListings.map((list) => (
+					<ListingItem
+						cUser = {currentUser}	
+						key={list.id}
+						{...list}
+						onDelete={() => deleteListing(list.id)}
+						view={listingView}
+					/>
+				))
+				:
+				likedListings.map((list) => (
+					<ListingItem
+						cUser = {currentUser}	
+						key={list.id}
+						{...list}
+						onDelete={() => deleteListing(list.id)}
+						view={listingView}
+					/>
+				))
+			)
+		}
 		</div>
 	);
 };

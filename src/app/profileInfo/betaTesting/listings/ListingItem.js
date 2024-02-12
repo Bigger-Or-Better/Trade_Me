@@ -19,7 +19,6 @@ const ListingItem = ({
 	view
 }
 ) => {
-	console.log(view);
 	return (
 		<div className="col-md-6 col-xl-4 mb-4">
 			<div className="db-listing-card card">
