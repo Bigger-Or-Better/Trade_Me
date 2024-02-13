@@ -44,7 +44,17 @@ const SettingsForm = ({ currentUser }) => {
 			.post("/api/profile/settings", data)
 			.then((response) => {
 				toast.success("Profile Updated");
-				router.refresh();
+				// router.refresh();
+			})
+			// .then( //this_works
+			// 	axios.post("/api/profile/settings", data)
+			// 	.then((response) => {
+			// 		toast.success("Profile Updated");
+			// 		// router.refresh();
+			// 	})
+			// )
+			.catch((error) => {
+				toast.error("Something went wrong.");
 			})
 			.catch((error) => {
 				toast.error("Something went wrong.");
@@ -54,8 +64,8 @@ const SettingsForm = ({ currentUser }) => {
 			});
 	};
 
-console.log(currentUser);
 
+	console.log(currentUser)
 	return (
 		<div className="authentication-area ptb-100 bg-color-fff5e1">
 			<div className="container">

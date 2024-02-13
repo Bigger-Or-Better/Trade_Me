@@ -1,8 +1,9 @@
 import React from "react";
 import PageBanner from "@/components/Common/PageBanner";
 import { getCurrentUser } from "@/actions/getCurrentUser";
-import SettingsForm from "@/components/Profile/SettingsForm";
-import InfoUpdateForm from "@/components/Profile/InfoUpdateForm";
+import SettingsForm from "@/components/ProfileInfo/SettingsForm";
+import InfoUpdateForm from "@/components/ProfileInfo/InfoUpdateForm";
+import UpdateSettingsForm from "@/components/ProfileInfo/UpdateSettingsForm";
 export const dynamic = "force-dynamic";
 import { redirect } from "next/navigation";
 import getListings from "@/actions/getListings";
@@ -26,8 +27,9 @@ const page = async ({ searchParams }) => {
 						 	<LeftSidebar />
 						</div>
 						<div className="col-lg-8">
-							<SettingsForm currentUser={currentUser} />
-							<InfoUpdateForm currentUser={currentUser?.profile} />
+							{/* <SettingsForm currentUser={currentUser} />
+							<InfoUpdateForm currentUser={currentUser?.profile} /> */}
+							<UpdateSettingsForm currentUser={currentUser} ></UpdateSettingsForm>
 						</div>
 					</div>
 				</div>
