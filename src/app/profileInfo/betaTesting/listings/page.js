@@ -12,6 +12,10 @@ import LeftSidebar from "@/components/ProfileInfo/LeftSidebar";
 
 const page = async ({ searchParams }) => {
 	const currentUser = await getCurrentUser();
+	if (!currentUser) {
+		redirect("/");
+	}
+
 	const user = await getUserById({ userId: `${currentUser.id}` });
 	const favourites = await getMyFavourites();
 	const newFav = [];

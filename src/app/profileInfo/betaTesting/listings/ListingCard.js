@@ -10,8 +10,8 @@ const ListingCard = ({ postedListings, likedListings, currentUser}) => {
 	// console.log("likedListings_start",likedListings,"likedListings_end")
 
 	const [listingView, setListingView] = useState("Posted");
-	// const [viewableArray, setViewableArray] = useState([postedListings])
-	let viewableArray = postedListings;
+	// const [viewableArray, setViewableArray] = useState(postedListings)
+	// let viewableArray = postedListings;
 
 	const router = useRouter();
 	const deleteListing = async (listingId) => {
@@ -36,14 +36,14 @@ const ListingCard = ({ postedListings, likedListings, currentUser}) => {
 		if (e.target.innerHTML.includes("Posted")){ 
 			setListingView("Posted");
 			// setViewableArray(postedListings);
-			viewableArray = postedListings
+			// viewableArray = postedListings
 		}
 		else { 
 			setListingView("Liked");
 			// setViewableArray(likedListings);
-			viewableArray = likedListings
+			// viewableArray = likedListings
 		}
-		console.log(viewableArray)
+		// console.log(viewableArray)
 	}
 
 	return (
@@ -54,6 +54,7 @@ const ListingCard = ({ postedListings, likedListings, currentUser}) => {
 			</div>
 
 		{
+			////DOESN'T SEEM TO BE FAST ENOUGH, WILL HAVE TO USE THE BELOW CODE DESPITE NOT BEING DRY.
 			// viewableArray.map((list) => (
 			// 	<ListingItem
 			// 		cUser = {currentUser}	
