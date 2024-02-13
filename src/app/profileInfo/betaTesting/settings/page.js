@@ -13,9 +13,12 @@ const page = async ({ searchParams }) => {
 	const {listings} = await getListings(searchParams);
 	const currentUser = await getCurrentUser();
 	const isAdmin = currentUser?.role === "ADMIN";
-	if (!isAdmin) {
+	if (!currentUser) {
 		redirect("/");
 	}
+
+
+
 	return (
 		<>
 			<PageBanner pageTitle="All listings" />

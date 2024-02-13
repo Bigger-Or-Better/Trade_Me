@@ -54,7 +54,6 @@ const SettingsForm = ({ currentUser }) => {
 			});
 	};
 
-console.log(currentUser);
 
 	return (
 		<div className="authentication-area ptb-100 bg-color-fff5e1">

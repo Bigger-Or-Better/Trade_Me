@@ -111,7 +111,7 @@ const UserMenu = ({ currentUser }) => {
 										</Link>
 									</li> */}
 									<li>
-										<Link 
+										{/* <Link 
 											href="/listings/favourites"
 											className={`user-nav-link ${
 												currentRoute === "/listings/favourites"
@@ -121,10 +121,10 @@ const UserMenu = ({ currentUser }) => {
 										>
 											<i className="ri-bookmark-3-line"></i>{" "}
 											Favorites
-										</Link>
+										</Link> */}
 									</li>
 									<li>
-										<Link 
+										{/* <Link 
 											href="/profile/edit-my-info"
 											className={`user-nav-link ${
 											currentRoute === "/profile/edit-my-info"
@@ -134,10 +134,10 @@ const UserMenu = ({ currentUser }) => {
 										>
 											<i className="ri-user-add-line"></i>{" "}
 											Update Profile Info
-										</Link>
+										</Link> */}
 									</li>
 									<li>
-										<Link 
+										{/* <Link 
 											href="/profile/settings"
 											className={`user-nav-link ${
 											currentRoute === "/profile/settings"
@@ -147,7 +147,7 @@ const UserMenu = ({ currentUser }) => {
 										>
 											<i className="ri-settings-line"></i>{" "}
 											Settings
-										</Link>
+										</Link> */}
 									</li>
 
 									<hr />

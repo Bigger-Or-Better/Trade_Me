@@ -26,13 +26,16 @@ const RecentViewings = ({ currentUser }) => {
 
 
 		if (currentUser){
-		let myHistory_array = currentUser.myHistory.split(",").reverse();
-		// let smallArray = [];
-			console.log(myHistory_listings, myHistory_array)
+			let myHistory_array = []
+			if (currentUser.myHistory){
+				myHistory_array = currentUser.myHistory.split(",").reverse();
+			}
+			// let smallArray = [];
+				console.log(myHistory_listings, myHistory_array)
 
-			myHistory_array.forEach(id => {
-				fetchListing(id)
-			});
+				myHistory_array.forEach(id => {
+					fetchListing(id)
+				});
 		}
 		
 

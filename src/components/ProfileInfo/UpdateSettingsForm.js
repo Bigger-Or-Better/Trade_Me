@@ -68,6 +68,26 @@ const UpdateSettingsForm = ({ currentUser }) =>{
 				setIsLoading(false);
 			});
 	};
+	const deleteUser = async (userId) => {
+		const shouldDelete = window.confirm(
+			"Are you sure you want to delete this user?"
+		);
+
+		// if (parseInt(userId) === currentUser.id) {
+		// 	return toast.error("You can't delete your own ID!");
+		// }
+
+		if (shouldDelete) {
+			await axios
+				.delete(`/api/users/${userId}`)
+				.then((response) => {
+				})
+				.catch((error) => {
+					toast.error("Something went wrong!");
+				});
+		}
+	};
+
 
   console.log("UpdateSettingsForm", currentUser)
 
@@ -89,6 +109,7 @@ const UpdateSettingsForm = ({ currentUser }) =>{
 								value={image}
 							/>
 						</div>
+						<hr></hr>
 						<div className="form-group">
 							<Input
 								id="name"
@@ -109,6 +130,7 @@ const UpdateSettingsForm = ({ currentUser }) =>{
 								required
 							/>
 						</div>
+						<hr></hr>
             <div className="form-group">
 							<Input
 								id="bio"
@@ -142,9 +164,20 @@ const UpdateSettingsForm = ({ currentUser }) =>{
 								disabled={isLoading}
 							/>
 						</div>
-						{/* <div className="form-group mb-0">
-							<Button label="Update" disabled={isLoading} />
-						</div> */}
+						<hr></hr>
+						<div className="form-group mb-0">
+							{/* <button 
+								label="Delete" 
+								disabled={isLoading} 
+								onClick={() => deleteUser(currentUser.id)}
+								/> */}
+							<button
+								className="btn btn-danger btn-sm btn-delete ms-2"
+								onClick={() => deleteUser(currentUser.id)}
+							>
+								Delete
+							</button>
+						</div>
 					</form>
 				</div>
 			</div>

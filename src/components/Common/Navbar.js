@@ -172,44 +172,6 @@ const Navbar = ({ currentUser }) => {
 						</nav>
 					</div>
         </div>
-
-        {/* <div className="others-option-for-responsive">
-				<div className="container">
-					<div className="dot-menu">
-						<div className="inner">
-							<div className="circle circle-one"></div>
-							<div className="circle circle-two"></div>
-							<div className="circle circle-three"></div>
-						</div>
-					</div>
-
-					<div className="container">
-						<div className="option-inner">
-							<div className="others-options justify-content-center">
-								<ul>
-									<UserMenu currentUser={currentUser} />
-									<li>
-										<Link
-											href="/dashboard/listings/add-listing"
-											className="default-btn"
-										>
-											<span>
-												Add Listing
-												<Image
-													src={plushSvg}
-													width={18}
-													height={18}
-													alt="plush"
-												/>
-											</span>
-										</Link>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div> */}
       </div>
     </>
   );
