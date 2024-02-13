@@ -37,56 +37,7 @@ const AuthorDetails = ({ user }) => {
 										{user.profile?.address}
 									</p>
 
-									<ul>
-										{user.profile?.facebook && (
-											<li>
-												<Link
-													href={
-														user.profile?.facebook
-													}
-													target="_blank"
-													rel="noopener noreferrer"
-												>
-													<i className="ri-facebook-fill"></i>
-												</Link>
-											</li>
-										)}
-										{user.profile?.youtube && (
-											<li>
-												<Link
-													href={user.profile?.youtube}
-													target="_blank"
-													rel="noopener noreferrer"
-												>
-													<i className="ri-youtube-line"></i>
-												</Link>
-											</li>
-										)}
-										{user.profile?.twitter && (
-											<li>
-												<Link
-													href={user.profile?.twitter}
-													target="_blank"
-													rel="noopener noreferrer"
-												>
-													<i className="ri-twitter-fill"></i>
-												</Link>
-											</li>
-										)}
-										{user.profile?.linkedin && (
-											<li>
-												<Link
-													href={
-														user.profile?.linkedin
-													}
-													target="_blank"
-													rel="noopener noreferrer"
-												>
-													<i className="ri-linkedin-fill"></i>
-												</Link>
-											</li>
-										)}
-									</ul>
+
 								</div>
 
 								<div className="contact-info">

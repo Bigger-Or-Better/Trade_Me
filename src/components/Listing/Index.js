@@ -13,7 +13,7 @@ const MapWithNoSSR = dynamic(() => import("../Map"), {
 	ssr: false,
 });
 import Features from "./Features";
-import SahreAndSave from "./SahreAndSave";
+// import SahreAndSave from "./SahreAndSave";
 import DetailsImages from "./DetailsImages";
 
 
@@ -95,10 +95,10 @@ const Index = ({ currentUser, listing, reviews }) => {
 									</li>
 								</ul>
 
-								<SahreAndSave
+								{/* <SahreAndSave
 									currentUser={currentUser}
 									listingId={listing.id}
-								/>
+								/> */}
 							</div>
 
 							<div
