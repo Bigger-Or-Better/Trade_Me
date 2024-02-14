@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { signIn } from "next-auth/react";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import Input from "../FormHelpers/Input";
@@ -57,7 +58,26 @@ const UpdateSettingsForm = ({ currentUser }) =>{
 					toast.success("Profile Updated");
 					// router.refresh();
 				})
+				//then(signIn) //see signin form
 			)
+			// .then(
+			// 	signIn("credentials", {
+			// 		...data,
+			// 		redirect: false,
+			// 	}).then((callback) => {
+			// 		setIsLoading(false);
+					
+			// 		if (!callback?.error) {
+
+							//update password...// put this whole thing with the user Settings stuff
+
+			// 		}
+		
+			// 		if (callback?.error) {
+			// 			toast.error(callback.error);
+			// 		}
+			// 	})
+			// )
 			.catch((error) => {
 				toast.error("Something went wrong.");
 			})

@@ -75,8 +75,8 @@ const ListingForm = () => {
 			.then((response) => {
 				toast.success("Listing created!");
 				// console.log(response, data)
-				// router.refresh();
-				// reset();
+				router.refresh();
+				reset();
 			})
 			.catch((error) => {
 				toast.error("Something went wrong.");

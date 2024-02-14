@@ -30,13 +30,12 @@ const SigninForm = () => {
 
 	const onSubmit = (data) => {
 		setIsLoading(true);
-
 		signIn("credentials", {
 			...data,
 			redirect: false,
 		}).then((callback) => {
 			setIsLoading(false);
-
+			
 			if (!callback?.error) {
 				toast.success("Logged in");
 				router.refresh();

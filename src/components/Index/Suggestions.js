@@ -14,7 +14,7 @@ const Suggestions = ({ currentUser }) => {
 	useEffect(() => {
 		const fetchData = async () => {
 			await axios
-				.get(`/api/listings/featured?category=all`)
+				.get(`/api/listings/featured?category=mostRecent`)
 				.then((response) => {
 					setListings(response.data);
 				})

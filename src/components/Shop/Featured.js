@@ -5,14 +5,21 @@ import { Pagination, Navigation } from "swiper";
 import axios from "axios";
 import FeaturedItem from "./FeaturedItem";
 import { toast } from "react-hot-toast";
+import { categories } from "@/libs/Categories";
 
 const Featured = ({ currentUser, myListings,searchParams }) => {
-	console.log(myListings, searchParams)
 	const [listings, setListings] = useState(myListings);
 	const [cat, setCat] = useState("all");
 
-	console.log(listings);
+	console.log(categories);
+	categories.map((cat)=> {
+		console.log(cat.value)
+	})
 
+	let party = ["Rotom","Flygon","Greninja","Scizor","Magcargo","Executor"]
+	let pokemon = party.map((P)=>{
+		<h1>{P}</h1>
+	})
 	// useEffect(() => {
 	// 	const fetchData = async () => {
 	// 		await axios
@@ -49,14 +56,14 @@ const Featured = ({ currentUser, myListings,searchParams }) => {
 
 					<div className="section-title-right">
 						<ul className="nav nav-tabs featured-tabs">
-							<li className="nav-item">
+						<li className="nav-item">
 								<button
 									className={`nav-link default-btn ${
 										cat === "all" && "active"
 									}`}
 									onClick={() => getFeatured("all")}
 								>
-									Most Recent
+									All
 								</button>
 							</li>
 							<li className="nav-item">
@@ -111,6 +118,16 @@ const Featured = ({ currentUser, myListings,searchParams }) => {
 								</button>
 							</li>
 						</ul>
+
+						{/* <label for="category">Filter By Category</label>
+						<select name="category" id="category">
+						<option value={"all"}>All</option>
+							{categories.map((cat) => {
+								<option value={cat.value}>{cat.value}</option>
+							})
+							}
+						</select> */}
+
 					</div>
 				</div>
 			</div>
@@ -120,10 +137,10 @@ const Featured = ({ currentUser, myListings,searchParams }) => {
 					<div className="tab-pane fade show active">
 						<Swiper 
 							spaceBetween={15}
-							grabCursor={true}
-							pagination={{
-								clickable: true,
-							}}
+							// grabCursor={true}
+							// pagination={{
+							// 	clickable: true,
+							// }}
 							breakpoints={{
 								0: {
 									slidesPerView: 2,
