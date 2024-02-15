@@ -14,40 +14,16 @@ const RecentViewings = ({ currentUser }) => {
 	useEffect(() => {
 
 		const fetchListing = async (id) => {
-			// await axios
-			// 	.get(`/api/listings/myHistory?id=${id}`)
-			// 	.then((response) => {
-					// console.log(response.data)
-			// 	})
-			// 	.catch((error) => {
-			// 		toast.error("Something went wromg!");
-			// 	});
+
 		};
 
-
-		if (currentUser){
-			let myHistory_array = []
-			if (currentUser.myHistory){
-				myHistory_array = currentUser.myHistory.split(",").reverse();
-			}
-			// let smallArray = [];
-				console.log(myHistory_listings, myHistory_array)
-
-				myHistory_array.forEach(id => {
-					fetchListing(id)
-				});
-		}
 		
-
-		
-		
-
-
 		const fetchData = async () => {
 			await axios
-				.get(`/api/listings/featured?category=all`)
+				.get(`/api/listings/variousListings?list=${currentUser.myHistory}`)
 				.then((response) => {
 					setListings(response.data);
+					// console.log(response.data)
 				})
 				.catch((error) => {
 					toast.error("Something went wromg!");

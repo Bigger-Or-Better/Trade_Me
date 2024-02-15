@@ -24,6 +24,7 @@ const Index = ({ currentUser, listing, reviews }) => {
 	if (currentUser){
 		let myHistory_string = currentUser.myHistory;
 		let clear = true;
+		let existingItem;
 
 		if (!myHistory_string){
 			myHistory_string = "";
@@ -33,20 +34,24 @@ const Index = ({ currentUser, listing, reviews }) => {
 			myHistory_string = myHistory_string + ",";
 		}
 
-		//  2) Loop through and check for current viewing is in history already
 		let myHistory_array = myHistory_string.split(",")
+
+		
+		//  2) Loop through and check for current viewing is in history already
 		myHistory_array.forEach(listItem => {
 			if (listItem == listing.id){
+				console.log(listItem, listing.id)
+				existingItem = listItem;
 				clear = false;
 			}
 		});
+
 
 		if (clear == true){
 			// 3a) if current history is 10, remove 1
 			if (myHistory_array.length >= 11){
 				myHistory_array.shift();
-				myHistory_array.toString();
-				myHistory_string = myHistory_array
+				myHistory_string = myHistory_array.toString()
 			}
 
 			// 3b) add current viewing to existing history
@@ -66,7 +71,11 @@ const Index = ({ currentUser, listing, reviews }) => {
 
 		}
 		else {
-			// console.log("Listing Not Added")
+			console.log(myHistory_string)
+			myHistory_array = myHistory_array.filter(item => item !== existingItem);
+			myHistory_array.unshift(existingItem);
+			myHistory_string = myHistory_array.toString()
+			console.log(myHistory_string)
 		}
 	}
 	
