@@ -40,7 +40,6 @@ const Index = ({ currentUser, listing, reviews }) => {
 		//  2) Loop through and check for current viewing is in history already
 		myHistory_array.forEach(listItem => {
 			if (listItem == listing.id){
-				console.log(listItem, listing.id)
 				existingItem = listItem;
 				clear = false;
 			}
@@ -71,11 +70,23 @@ const Index = ({ currentUser, listing, reviews }) => {
 
 		}
 		else {
-			console.log(myHistory_string)
-			myHistory_array = myHistory_array.filter(item => item !== existingItem);
-			myHistory_array.unshift(existingItem);
+			// 3c) if current viewing already exists, relocate to end of array
+			myHistory_array = myHistory_array.filter(item => (item !== existingItem) && (item !== ""));
+			myHistory_array.push(existingItem);
 			myHistory_string = myHistory_array.toString()
 			console.log(myHistory_string)
+			let data = {"myHistory": myHistory_string};
+
+			// 4) update myHistory
+			axios
+			.post(`/api/users/${currentUser.id}/myHistory`, data)
+			.then((response) => {
+				toast.success("Information updated!");
+
+			})
+			.catch((error) => {
+				toast.error("Something went wrong!");
+			})
 		}
 	}
 	
