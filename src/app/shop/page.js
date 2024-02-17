@@ -1,7 +1,7 @@
 import React from "react";
-import Listings from "@/components/Listings/Index";
+import Listings from "@/components/Shop/Index";
 import getListings from "@/actions/getListings";
-import SearchForm from "@/components/Listings/SearchForm";
+import SearchForm from "@/components/Shop/SearchForm";
 import { getCurrentUser } from "@/actions/getCurrentUser";
 export const dynamic = "force-dynamic";
 

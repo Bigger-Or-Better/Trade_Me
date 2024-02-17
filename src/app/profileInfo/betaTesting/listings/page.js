@@ -37,7 +37,7 @@ const page = async ({ searchParams }) => {
 						</div>
 						<div className="col-lg-8">
 							<ListingCard 
-								postedListings={user?.listings && user.listings}
+								postedListings={user?.listings && user.listings.reverse()} //this way the more recent comes first
 								likedListings = {newFav} 
 								currentUser={currentUser} 
 								/> 							

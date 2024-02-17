@@ -6,8 +6,6 @@ import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
 const ListingCard = ({ postedListings, likedListings, currentUser}) => {
-	// console.log("postedListings_start",postedListings,"postedListings_end")
-	// console.log("likedListings_start",likedListings,"likedListings_end")
 
 	const [listingView, setListingView] = useState("Posted");
 	// const [viewableArray, setViewableArray] = useState(postedListings)

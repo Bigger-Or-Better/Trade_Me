@@ -12,18 +12,15 @@ import Button from "@/components/FormHelpers/Button";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
-
 const RichTextEditor = dynamic(() => import("@mantine/rte"), {
 	ssr: false,
 	loading: () => null,
 });
 import RTEControls from "@/utils/RTEControls";
 
-const ListingForm = ({currentUser}) => {
+const ListingForm = () => {
 	const [isLoading, setIsLoading] = useState(false);
 	const router = useRouter();
-
-	console.log(currentUser);
 
 	const setCustomValue = (id, value) => {
 		setValue(id, value, {
@@ -181,31 +178,24 @@ const ListingForm = ({currentUser}) => {
 							/>
 						</div> */}
 
-
+						<div className="col-lg-12">
+							<div className="form-group">
+								<Controller
+									name="features"
+									control={control}
+									defaultValue=""
+									render={({ field }) => (
+										<RichTextEditor
+											controls={RTEControls}
+											{...field}
+											placeholder="Features"
+										/>
+									)}
+								/>
+							</div>
+						</div>
 
 						<div className="col-lg-12">
-								<div className="form-group">
-									<Controller
-										name="features"
-										control={control}
-										defaultValue=""
-										render={({ field }) => (
-											<RichTextEditor
-												controls={RTEControls}
-												{...field}
-												placeholder="Features"
-											/>
-										)}
-									/>
-								</div>
-							</div>
-
-
-
-
-						{(currentUser.role == "ADMIN") ? 
-							(
-							<div className="col-lg-12">
 							<Input
 								label="Price"
 								id="price"
@@ -216,12 +206,6 @@ const ListingForm = ({currentUser}) => {
 								required
 							/>
 						</div>
-							):
-							(<></>)
-						}
-
-						
-
 
 						<Button disabled={isLoading} label={"Add Listing"} />
 					</div>

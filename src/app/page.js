@@ -19,7 +19,14 @@ import getAllUsers from "@/actions/getAllUser";
 export const dynamic = "force-dynamic";
 const limitParams = { limit: 6 };
 export default async function Home() {
-	const currentUser = await getCurrentUser();
+	let currentUser = null;
+
+	try {
+		currentUser = await getCurrentUser();
+	}
+	catch(error){
+		currentUser = null;
+	}
 	// const blogPosts = await getBlogPosts(limitParams);
 	const allUsers = await getAllUsers();
 	
@@ -35,8 +42,13 @@ export default async function Home() {
 		<>
 			<Banner />
 			{/* <Category /> */}
+			{(currentUser) ? 
+			<>
 			<RecentViewings currentUser={currentUser}/>
 			<Suggestions currentUser={currentUser}/>
+			</>:
+			<></>
+			}
 			<Featured currentUser={currentUser} />
 			<Traders allUsers={allUsers}/>
 			{/* <OtherTraders allUsers={allUsers}/> */}
