@@ -77,7 +77,6 @@ model Listing {
     latitude       Float
     longitude      Float
     tradeOffers    String
-    isSellable     Int
 
     user       User        @relation(fields: [userId], references: [id], onDelete: Cascade)
     reviews    Review[]

@@ -8,13 +8,15 @@ import { toast } from "react-hot-toast";
 import { categories } from "@/libs/Categories";
 
 const Featured = ({ currentUser, myListings,searchParams }) => {
-	const [listings, setListings] = useState(myListings);
+	const [listings, setListings] = useState(myListings.filter(item => (item.price == 0)));
 	const [cat, setCat] = useState("all");
 
-	console.log(categories);
-	categories.map((cat)=> {
-		console.log(cat.value)
-	})
+	// console.log(categories);
+	// categories.map((cat)=> {
+	// 	console.log(cat.value)
+	// })
+
+	console.log(listings);
 
 	let party = ["Rotom","Flygon","Greninja","Scizor","Magcargo","Executor"]
 	let pokemon = party.map((P)=>{
