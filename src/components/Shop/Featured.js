@@ -8,7 +8,8 @@ import { toast } from "react-hot-toast";
 import { categories } from "@/libs/Categories";
 
 const Featured = ({ currentUser, myListings,searchParams }) => {
-	const [listings, setListings] = useState(myListings.filter(item => (item.price == 0)));
+	const [listings, setListings] = useState(myListings.filter(item => ((item.price == 0) && (item.userId !== currentUser.id)))); //hide self posted listings
+	// const [listings, setListings] = useState(myListings.filter(item => (item.price == 0)));
 	const [cat, setCat] = useState("all");
 
 	// console.log(categories);

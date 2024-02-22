@@ -13,6 +13,7 @@
 
 
 
+
 @media all and (min-width: 0px) {
   a.hover,
   .default-btn:hover {
@@ -255,6 +256,9 @@
   }
   body .shop .container-fluid .tab-content .tab-pane .swiper .swiper-pagination {
     display: none;
+  }
+  .bg-right-sidebar .MyPayPal div > div > div:nth-child(2) {
+    display: none !important;
   }
 }
 @media all and (min-width: 760px) {

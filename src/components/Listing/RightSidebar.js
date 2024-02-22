@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import userImg from "../../../public/images/listing-details-img/user.jpg";
@@ -7,8 +7,13 @@ import message2 from "../../../public/images/icon/messages-2.svg";
 import profileImg from "../../../public/images/icon/profiles.svg";
 import pdfIco from "../../../public/images/listing-details-img/pdf.svg";
 import downloadIco from "../../../public/images/listing-details-img/zip.svg";
+import PayPal from "../PayPal/PayPal";
 
 const RightSidebar = ({ user }) => {
+	const [checkOut, setCheckOut] = useState(false);
+
+
+
 	return (
 		<div className="col-lg-4">
 			<div className="right-sidebar">
@@ -82,8 +87,13 @@ const RightSidebar = ({ user }) => {
 					</ul>
 				</div>
 
-				{/* <div className="bg-right-sidebar">
-					<h3>Send Message</h3>
+				<div className="bg-right-sidebar">
+					<h3>
+						<button onClick={()=>{
+							setCheckOut(true)
+						}}>Check Out</button>
+					</h3>
+					{/* <h3>Send Message</h3>
 					<form
 						className="contact-form"
 						onSubmit={(e) => e.preventDefault()}
@@ -115,8 +125,14 @@ const RightSidebar = ({ user }) => {
 								Send Message
 							</button>
 						</div>
-					</form>
-				</div> */}
+					</form> */}
+				{checkOut ? (
+					<div className="MyPayPal">
+						<PayPal/>
+					</div>
+				):(<></>)}
+				</div>
+
 
 				{/* <div className="bg-right-sidebar">
 					<h3>Attachment</h3>

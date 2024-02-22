@@ -18,6 +18,7 @@
 @import "./customCSS_erik/home.erik";
 @import "./customCSS_erik/login.erik";
 @import "./customCSS_erik/shop.erik";
+@import "./customCSS_erik/listing[id]";
 
 
 @media all and (min-width: 0px) {
@@ -25,19 +26,23 @@
  @include mobHome;
  @include mobLogin;
  @include mobShop;
+ @include mobListing_ID;
 }
 @media all and (min-width: 760px) {
   @include minIndex;
   @include minHome;
   @include minLogin;
+  @include minListing_ID;
 }
 @media all and (min-width: 992px) {
   @include medIndex;
   @include medHome;
   @include medLogin;
+  @include medListing_ID;
 }
 @media all and (min-width: 1200px){ 
   @include maxIndex;
   @include maxHome;
   @include maxLogin;
+  @include maxListing_ID;
 }
