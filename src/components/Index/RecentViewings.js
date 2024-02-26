@@ -30,7 +30,12 @@ const RecentViewings = ({ currentUser }) => {
 				});
 		};
 
-		fetchData();
+		try {
+			fetchData();
+		}
+		catch(err){
+			console.log(err);
+		}
 	}, []);
 
 
@@ -38,23 +43,7 @@ const RecentViewings = ({ currentUser }) => {
 
 
 
-	if (currentUser){
-		// console.log(currentUser);
-		// let myHistory_array = currentUser.myHistory.split(",").reverse();
-		// let smallArray = [];
-	
-		// const getFeatured = async (cat) => {
-		// 	setCat(cat);
-		// 	await axios
-		// 		.get(`/api/listings/featured?category=${cat}`)
-		// 		.then((response) => {
-		// 			setListings(response.data);
-		// 		})
-		// 		.catch((error) => {
-		// 			toast.error("Something went wromg!");
-		// 		});
-		// };
-		
+	if (currentUser && listings){
 		return (
 			<div className="offer-area bg-color-fffcf8">
 				<div className="container">
@@ -91,12 +80,15 @@ const RecentViewings = ({ currentUser }) => {
 							>
 								{listings.length > 0 &&
 									listings.map((list) => (
+										(list) ?
 										<SwiperSlide key={list.id}>
 											<FeaturedItem
 												currentUser={currentUser}
 												{...list}
 											/>
 										</SwiperSlide>
+										:
+										<></>
 									))}
 							</Swiper>
 						</div>
