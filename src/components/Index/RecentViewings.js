@@ -27,15 +27,21 @@ const RecentViewings = ({ currentUser }) => {
 				})
 				.catch((error) => {
 					toast.error("Something went wromg!");
+					console.log(error)
 				});
 		};
 
-		try {
+		if (currentUser.myHistory){
 			fetchData();
 		}
-		catch(err){
-			console.log(err);
-		}
+
+		// try {
+		// 	console.log(currentUser.myHistory)
+		// 	fetchData();
+		// }
+		// catch(err){
+		// 	console.log(err);
+		// }
 	}, []);
 
 
@@ -43,7 +49,7 @@ const RecentViewings = ({ currentUser }) => {
 
 
 
-	if (currentUser && listings){
+	if (currentUser && currentUser.myHistory){
 		return (
 			<div className="offer-area bg-color-fffcf8">
 				<div className="container">
