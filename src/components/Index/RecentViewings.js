@@ -5,16 +5,15 @@ import { Pagination, Navigation } from "swiper";
 import axios from "axios";
 import FeaturedItem from "./FeaturedItem";
 import { toast } from "react-hot-toast";
-// import getListingById from "@/actions/getListingById";
+import { filter } from "@/utils/RTEControls";
+
 
 const RecentViewings = ({ currentUser }) => {
 	const [listings, setListings] = useState([]);
 	const [myHistory_listings, setMyHistory_listings] = useState([]);
 	
 	useEffect(() => {
-
 		const fetchListing = async (id) => {
-
 		};
 
 		
@@ -23,7 +22,7 @@ const RecentViewings = ({ currentUser }) => {
 				.get(`/api/listings/variousListings?list=${currentUser.myHistory}`)
 				.then((response) => {
 					setListings(response.data);
-					// console.log(response.data)
+					checkHistory(response.data);
 				})
 				.catch((error) => {
 					toast.error("Something went wromg!");
@@ -31,22 +30,36 @@ const RecentViewings = ({ currentUser }) => {
 				});
 		};
 
+
+		const checkHistory = async (
+			returnData,
+			newHistory_array = returnData.filter(listing_obj => (listing_obj !== null)).reverse(),
+			newHistory_string = "",
+			newData = ""
+			) => {
+			newHistory_array.forEach(listing_obj => {
+				newHistory_string = newHistory_string + listing_obj.id+",";
+			});
+
+			newHistory_string = newHistory_string.replace(/,\s*$/, "");
+			newData = {"myHistory": newHistory_string};
+
+			axios
+			.post(`/api/users/${currentUser.id}/myHistory`, newData)
+			.then((response) => {
+				// toast.success("Information updated!");
+			})
+			.catch((error) => {
+				toast.error("Something went wromg!");
+				console.log(error)
+			});
+		}
+
+
 		if (currentUser.myHistory){
 			fetchData();
 		}
-
-		// try {
-		// 	console.log(currentUser.myHistory)
-		// 	fetchData();
-		// }
-		// catch(err){
-		// 	console.log(err);
-		// }
 	}, []);
-
-
-
-
 
 
 	if (currentUser && currentUser.myHistory){
