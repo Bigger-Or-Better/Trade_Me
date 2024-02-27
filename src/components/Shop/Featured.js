@@ -8,14 +8,15 @@ import { toast } from "react-hot-toast";
 import { categories } from "@/libs/Categories";
 
 const Featured = ({ currentUser, myListings,searchParams }) => {
-	const [listings, setListings] = useState(myListings.filter(item => ((item.price == 0) && (item.userId !== currentUser.id)))); //hide self posted listings
-	// const [listings, setListings] = useState(myListings.filter(item => (item.price == 0)));
+	let viewableListings; 
+	if (currentUser){
+		viewableListings = myListings.filter(item => ((item.price == 0) && (item.userId !== currentUser.id))); //hide self posted listings
+	}
+	else{
+	viewableListings = myListings.filter(item => ((item.price == 0))); 
+	}
+	const [listings, setListings] = useState(viewableListings);
 	const [cat, setCat] = useState("all");
-
-	// console.log(categories);
-	// categories.map((cat)=> {
-	// 	console.log(cat.value)
-	// })
 
 	console.log(listings);
 
@@ -23,20 +24,6 @@ const Featured = ({ currentUser, myListings,searchParams }) => {
 	let pokemon = party.map((P)=>{
 		<h1>{P}</h1>
 	})
-	// useEffect(() => {
-	// 	const fetchData = async () => {
-	// 		await axios
-	// 			.get(`/api/listings/featured?category=all`)
-	// 			.then((response) => {
-	// 				setListings(response.data);
-	// 			})
-	// 			.catch((error) => {
-	// 				toast.error("Something went wromg!");
-	// 			});
-	// 	};
-
-	// 	fetchData();
-	// }, []);
 
 	const getFeatured = async (cat) => {
 		setCat(cat);

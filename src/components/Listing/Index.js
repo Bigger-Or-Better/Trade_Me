@@ -18,10 +18,10 @@ import DetailsImages from "./DetailsImages";
 
 
 const Index = ({ currentUser, listing, reviews }) => {
-	// console.log(currentUser);
+	console.log(listing, currentUser);
 
 	// 1) Check if History Exists
-	if (currentUser){
+	if (currentUser && listing.user.id !== currentUser.id){
 		let myHistory_string = currentUser.myHistory;
 		let clear = true;
 		let existingItem;
@@ -89,10 +89,6 @@ const Index = ({ currentUser, listing, reviews }) => {
 			})
 		}
 	}
-	
-	
-	
-
 
 	return (
 		<div className="listing-details-area ptb-100">

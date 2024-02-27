@@ -16,9 +16,11 @@ const ListingItem = ({
 	category,
 	tradeOffers,
 	onDelete,
+	internalChange,
 	view
 }
 ) => {
+	console.log(view);
 	return (
 		<div className="col-md-6 col-xl-4 mb-4">
 			<div className="db-listing-card card">
@@ -46,21 +48,27 @@ const ListingItem = ({
 							<></>
 						}
 					</ul>
-					{
-							(view == "Posted") ?
-							<>
 							<Link
 								href={`/listing/${id}/${slug}`}
 								className="btn btn-primary btn-sm"
 							>
 								View Details
 							</Link>
-							<button
-								className="btn btn-danger btn-delete btn-sm ms-3"
-								onClick={onDelete}
-							>
-								Delete
-							</button>
+					{
+							(view == "Posted") ?
+							<>
+								<button
+									className="btn btn-primary btn-sm"
+									onClick={() => internalChange('Edit')}
+									>
+									Edit
+								</button>
+								<button
+									className="btn btn-danger btn-delete btn-sm"
+									onClick={onDelete}
+								>
+									Delete
+								</button>
 							</>:
 							<HeartButton currentUser={cUser} listingId={id} />
 						}
