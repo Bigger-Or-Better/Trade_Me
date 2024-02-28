@@ -1,7 +1,15 @@
 import React from "react";
 import ListingItem from "./ListingItem";
 
-const UserListing = ({ listings, user, currentUser }) => {
+const UserListing = ({ listings, user, currentUser, params }) => {
+	// console.log("listings_start",listings,"listings_end")
+	console.log("user_start", user.id, "user_end")
+	console.log("currentuser_start",currentUser.id,"currentUser_end")
+	if (currentUser){
+		// console.log(user.id, "user", currentUser.id, "currentUser")
+		// console.log(params, "params")
+	}
+	
 	return (
 		<div className="featured-area bg-color-181616 ptb-100">
 			<div className="container">

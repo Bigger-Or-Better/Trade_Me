@@ -37,11 +37,6 @@ model Profile {
     gender   String?
     address  String?
     phone    String?
-    website  String?
-    twitter  String?
-    facebook String?
-    linkedin String?
-    youtube  String?
     user     User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
@@ -81,6 +76,7 @@ model Listing {
     status         Status   @default(Pending)
     latitude       Float
     longitude      Float
+    tradeOffers    String
 
     user       User        @relation(fields: [userId], references: [id], onDelete: Cascade)
     reviews    Review[]
