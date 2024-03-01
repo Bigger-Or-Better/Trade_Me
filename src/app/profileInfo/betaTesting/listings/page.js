@@ -20,6 +20,10 @@ const page = async ({ searchParams }) => {
 	const favourites = await getMyFavourites();
 	const newFav = [];
 
+
+	console.log(currentUser, "CURRENT USER", user, "USER")
+
+
 	favourites.forEach(item => {
 		newFav.push(item.listing);
 	});

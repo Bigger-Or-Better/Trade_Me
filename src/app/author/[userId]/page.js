@@ -10,7 +10,6 @@ const page = async ({ params }) => {
 	const user = await getUserById(params);
 	const currentUser = await getCurrentUser();
 	// const user = await getUserById({ userId: `${currentUser.id}` });
-	console.log(user.id, "user", currentUser.id, "user")
 	
 	return (
 		<>

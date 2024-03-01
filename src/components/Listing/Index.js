@@ -18,7 +18,7 @@ import DetailsImages from "./DetailsImages";
 
 
 const Index = ({ currentUser, listing, reviews }) => {
-	console.log(listing, currentUser);
+	console.log(currentUser);
 
 	// 1) Check if History Exists
 	if (currentUser && listing.user.id !== currentUser.id){
@@ -124,7 +124,8 @@ const Index = ({ currentUser, listing, reviews }) => {
 								className="listing-details-box"
 							/>
 
-							<Features {...listing} />
+							<Features 
+							{...listing} />
 
 							{/* {listing && (
 								<MapWithNoSSR
@@ -133,16 +134,18 @@ const Index = ({ currentUser, listing, reviews }) => {
 								/>
 							)} */}
 
-							<Reviews reviews={reviews} />
+							{/* <Reviews reviews={reviews} /> */}
 
-							<FeedbackForm
+							{/* <FeedbackForm
 								currentUser={currentUser}
 								listingId={listing.id}
-							/>
+							/> */}
 						</div>
 					</div>
 
-					<RightSidebar {...listing} />
+					<RightSidebar 
+						currentUser={currentUser}
+						{...listing} />
 				</div>
 			</div>
 		</div>

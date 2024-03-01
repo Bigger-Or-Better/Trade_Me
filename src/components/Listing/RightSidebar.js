@@ -8,11 +8,10 @@ import profileImg from "../../../public/images/icon/profiles.svg";
 import pdfIco from "../../../public/images/listing-details-img/pdf.svg";
 import downloadIco from "../../../public/images/listing-details-img/zip.svg";
 import PayPal from "../PayPal/PayPal";
+import TradePopUp from "./TradePopUp";
 
-const RightSidebar = ({ user }) => {
-	const [checkOut, setCheckOut] = useState(false);
-
-
+const RightSidebar = ({ currentUser, user, price }) => {
+	const [offerTrade, setOfferTrade] = useState(false);
 
 	return (
 		<div className="col-lg-4">
@@ -87,7 +86,9 @@ const RightSidebar = ({ user }) => {
 					</ul>
 				</div>
 
-				<div className="bg-right-sidebar">
+				{
+					(price)?
+					<div className="bg-right-sidebar">
 					<h3>
 						<button onClick={()=>{
 							setCheckOut(true)
@@ -132,37 +133,24 @@ const RightSidebar = ({ user }) => {
 					</div>
 				):(<></>)}
 				</div>
-
-
-				{/* <div className="bg-right-sidebar">
-					<h3>Attachment</h3>
-					<ul className="attachment-btn">
-						<li>
-							<button>
-								<Image
-									src={pdfIco}
-									alt="Image"
-									width="36"
-									height="45"
-								/>
-								Download pDF File
-							</button>
-						</li>
-						<li>
-							<button>
-								<Image
-									src={downloadIco}
-									alt="Image"
-									width="36"
-									height="45"
-								/>
-								Download zip File
-							</button>
-						</li>
-					</ul>
-				</div> */}
-			</div>
-		</div>
+				: 				
+				<div className="bg-right-sidebar">
+					<h3>
+						<button onClick={()=>{
+							setOfferTrade(true)
+						}}>Offer Trade</button>
+					</h3>
+					
+					{offerTrade ? (
+						<TradePopUp
+						currentUser={currentUser}
+							user={user}
+						></TradePopUp>
+					):(<></>)}
+					</div>
+						}		
+					</div>
+				</div>
 	);
 };
 
