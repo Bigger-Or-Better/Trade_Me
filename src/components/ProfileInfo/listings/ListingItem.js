@@ -23,7 +23,7 @@ const ListingItem = ({
 	view
 }
 ) => {
-	console.log(title);
+	// console.log(title);
 	return (
 		<div className="col-md-6 col-xl-4 mb-4">
 			<div className="db-listing-card card">
@@ -64,16 +64,17 @@ const ListingItem = ({
 									className="btn btn-primary btn-sm"
 									onClick={(e) => {
 										console.log(title, e.target.innerHTML);
-										internalChange('Edit')
-										onEdit(
-											{
-												title:title,
-												description:description,
-												imageSrc:imageSrc,
-												category:category,
-												features:features
-											}
-										)
+										internalChange();
+										onEdit()
+										// onEdit(
+										// 	{
+										// 		title:title,
+										// 		description:description,
+										// 		imageSrc:imageSrc,
+										// 		category:category,
+										// 		features:features
+										// 	}
+										// )
 									}}
 									>
 									Edit

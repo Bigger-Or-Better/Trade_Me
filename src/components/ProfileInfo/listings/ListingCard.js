@@ -10,7 +10,7 @@ import EditListing from "@/components/ProfileInfo/listings/EditListing";
 const ListingCard = ({ postedListings, likedListings, currentUser}) => {
 	const router = useRouter();
 	const [viewKey, setViewKey] = useState("Posted");
-	const [listingToEdit, setListingToEdit] = useState();
+	const [listingToEdit, setListingToEdit] = useState({});
 
 	// let element = 
 	// 	<ListingItem
@@ -42,7 +42,7 @@ const ListingCard = ({ postedListings, likedListings, currentUser}) => {
 	};
 
 	const alterView = (e) =>{
-		console.log(e.target.innerHTML);
+		// console.log(e.target.innerHTML);
 		if (e.target.innerHTML.includes("Posted")){ 
 			setViewKey("Posted");
 		}
@@ -54,8 +54,6 @@ const ListingCard = ({ postedListings, likedListings, currentUser}) => {
 		}
 	}
 
-
-
 	const renderSwitch = (str) =>{
 		switch(str){
 			case 'Liked':
@@ -66,8 +64,17 @@ const ListingCard = ({ postedListings, likedListings, currentUser}) => {
 							key={list.id}
 							{...list}
 							onDelete={() => deleteListing(list.id)}
-							internalChange={()=>setViewKey('Edit')}
-							onEdit={() => setListingToEdit()}
+							internalChange={()=>setViewKey('Liked')}
+							onEdit={() => setListingToEdit(
+								{
+									"id":list.id,
+									"title":list.title,
+									"description":list.description,
+									"imageSrc":list.imageSrc,
+									"category":list.category,
+									"features":list.features,
+								}
+							)}
 							view={viewKey}
 						/>
 					))
@@ -78,7 +85,7 @@ const ListingCard = ({ postedListings, likedListings, currentUser}) => {
 						<h1></h1>
 						<EditListing 
 							currentUser={currentUser}
-							listingToEdit/>
+							listingToEdit={listingToEdit}/>
 					</>
 				);
 			case 'Posted':
@@ -91,7 +98,16 @@ const ListingCard = ({ postedListings, likedListings, currentUser}) => {
 							{...list}
 							onDelete={() => deleteListing(list.id)}
 							internalChange={()=>setViewKey('Edit')}
-							onEdit={() => setListingToEdit()}
+							onEdit={() => setListingToEdit(
+								{
+									"id":list.id,
+									"title":list.title,
+									"description":list.description,
+									"imageSrc":list.imageSrc,
+									"category":list.category,
+									"features":list.features,
+								}
+							)}
 							view={viewKey}
 						/>
 					))

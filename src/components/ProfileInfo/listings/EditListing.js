@@ -44,12 +44,12 @@ const EditListing = ({currentUser, listingToEdit}) => {
 		control,
 	} = useForm({
 		defaultValues: {
-			title: "",
-			description: "",
-			imageSrc: "",
-			address: "",
-			features: "",
-			category: "",
+			title: listingToEdit.title,
+			description: listingToEdit.description,
+			imageSrc: listingToEdit.imageSrc,
+			address: listingToEdit.address,
+			features: listingToEdit.features,
+			category: listingToEdit.category,
 			location: //arbitrary
 			{
 				flag: "US",
@@ -72,17 +72,19 @@ const EditListing = ({currentUser, listingToEdit}) => {
 	const imageSrc = watch("imageSrc");
 
 	const onSubmit = (data) => {
+		console.log("DATA", data)
 		setIsLoading(true);
 		axios
-			.post("/api/listings/create", data)
+			.post(`/api/listings/${listingToEdit.id}`, data)
 			.then((response) => {
 				toast.success("Listing created!");
-				// console.log(response, data)
+				console.log(response, data)
 				router.refresh();
 				reset();
 			})
 			.catch((error) => {
 				toast.error("Something went wrong.");
+				console.log(error)
 			})
 			.finally(() => {
 				setIsLoading(false);
@@ -223,7 +225,7 @@ const EditListing = ({currentUser, listingToEdit}) => {
 						
 
 
-						<Button disabled={isLoading} label={"Add Listing"} />
+						<Button disabled={isLoading} label={"Edit Listing"} />
 					</div>
 				</form>
 			</div>
