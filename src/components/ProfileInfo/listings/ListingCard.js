@@ -10,6 +10,7 @@ import EditListing from "@/components/ProfileInfo/listings/EditListing";
 const ListingCard = ({ postedListings, likedListings, currentUser}) => {
 	const router = useRouter();
 	const [viewKey, setViewKey] = useState("Posted");
+	const [listingToEdit, setListingToEdit] = useState();
 
 	// let element = 
 	// 	<ListingItem
@@ -18,6 +19,7 @@ const ListingCard = ({ postedListings, likedListings, currentUser}) => {
 	// 		{...list}
 	// 		onDelete={() => deleteListing(list.id)}
 	// 		internalChange={()=>setViewKey('Edit')}
+	// onEdit={() => setListingToEdit()}
 	// 		view={viewKey}
 	// 	/>
 
@@ -53,6 +55,7 @@ const ListingCard = ({ postedListings, likedListings, currentUser}) => {
 	}
 
 
+
 	const renderSwitch = (str) =>{
 		switch(str){
 			case 'Liked':
@@ -64,13 +67,19 @@ const ListingCard = ({ postedListings, likedListings, currentUser}) => {
 							{...list}
 							onDelete={() => deleteListing(list.id)}
 							internalChange={()=>setViewKey('Edit')}
+							onEdit={() => setListingToEdit()}
 							view={viewKey}
 						/>
 					))
 				);
 			case 'Edit':
 				return(
-						<EditListing currentUser={currentUser}/>
+					<>
+						<h1></h1>
+						<EditListing 
+							currentUser={currentUser}
+							listingToEdit/>
+					</>
 				);
 			case 'Posted':
 			default:
@@ -82,6 +91,7 @@ const ListingCard = ({ postedListings, likedListings, currentUser}) => {
 							{...list}
 							onDelete={() => deleteListing(list.id)}
 							internalChange={()=>setViewKey('Edit')}
+							onEdit={() => setListingToEdit()}
 							view={viewKey}
 						/>
 					))

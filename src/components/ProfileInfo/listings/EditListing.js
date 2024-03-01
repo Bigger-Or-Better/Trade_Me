@@ -19,11 +19,11 @@ const RichTextEditor = dynamic(() => import("@mantine/rte"), {
 });
 import RTEControls from "@/utils/RTEControls";
 
-const EditListing = ({currentUser}) => {
+const EditListing = ({currentUser, listingToEdit}) => {
 	const [isLoading, setIsLoading] = useState(false);
 	const router = useRouter();
 
-	console.log(currentUser);
+	console.log(listingToEdit);
 
 	const setCustomValue = (id, value) => {
 		setValue(id, value, {
