@@ -34,90 +34,81 @@ const RightSidebar = ({ currentUser, user, price }) => {
 							</p>
 						</div>
 					</div>
-
-					<ul className="info">
-						<li>
-							<i className="ri-map-pin-line"></i>
-							{user?.profile?.address
-								? user.profile.address
-								: "Place Not Added"}
-						</li>
-						{/* <li>
-							<i className="ri-phone-line"></i>
-							<a href={`tel:${user?.profile?.phone}`}>
-								{user?.profile?.phone
-									? user.profile.phone
-									: "Phone Not Added"}
-							</a>{" "}
-							<span>Call Now</span>
-						</li> */}
-					</ul>
+					{
+						currentUser ? <>
+						<ul className="info">
+							<li>
+								<i className="ri-map-pin-line"></i>
+								{user?.profile?.address
+									? user.profile.address
+									: "Place Not Added"}
+							</li>
+						</ul>
 					
-					<ul className="contact-btn">
-						{/* <li>
-							<buttom className="default-btn">
-								<span>
-									Chat Via Whatsapp
-									<Image
-										src={message2}
-										alt="Image"
-										width={24}
-										height={24}
-									/>
-								</span>
-							</buttom>
-						</li> */}
-						<li>
-							<Link
-								href={`/author/${user.id}`}
-								className="default-btn active"
+						<ul className="contact-btn">
+							<li>
+								<Link
+									href={`/author/${user.id}`}
+									className="default-btn active"
+								>
+									<span>
+										View Profile
+										<Image
+											src={profileImg}
+											alt="Image"
+											width={24}
+											height={24}
+										/>
+									</span>
+								</Link>
+							</li>
+							<li
 							>
-								<span>
-									View Profile
-									<Image
-										src={profileImg}
-										alt="Image"
-										width={24}
-										height={24}
-									/>
-								</span>
-							</Link>
-						</li>
-					</ul>
+								<div
+									className="default-btn"
+								>
+									<span>
+										Request Friend Link
+										
+									</span>
+								</div>
+							</li>
+							{(price)?
+								<li className="">
+										<span 
+										className="default-btn"
+										onClick={()=>{
+											setCheckOut(true)
+										}}>Check Out</span>
+									{(checkOut) ? (
+										<li className="MyPayPal">
+											<PayPal/>
+										</li>
+									):(<></>)}
+								</li>
+							: 				
+								<li className="">
+										<span 
+											className="default-btn"
+											onClick={()=>{
+												setOfferTrade(true)
+											}}>Offer Trade</span>
+									
+									{(offerTrade) ? (
+										<TradePopUp
+										currentUser={currentUser}
+											user={user}
+										></TradePopUp>
+									):(<></>)}
+								</li>
+					}	
+						</ul>
+						</>: <></>
+					}
+
 				</div>
 
-				{
-					(price)?
-					<div className="bg-right-sidebar">
-					<h3>
-						<button onClick={()=>{
-							setCheckOut(true)
-						}}>Check Out</button>
-					</h3>
-					
-
-				{(checkOut) ? (
-					<div className="MyPayPal">
-						<PayPal/>
-					</div>
-				):(<></>)}
-				</div>
-				: 				
-				<div className="bg-right-sidebar">
-					<h3>
-						<button onClick={()=>{
-							setOfferTrade(true)
-						}}>Offer Trade</button>
-					</h3>
-					
-					{(offerTrade) ? (
-						<TradePopUp
-						currentUser={currentUser}
-							user={user}
-						></TradePopUp>
-					):(<></>)}
-					</div>
-						}		
+	
 					</div>
 				</div>
 	);

@@ -3,6 +3,8 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import fillerPhoto from "../../../public/images/authors/author-1.jpg"
+import { shortenText } from "@/utils/shortenText";
 import location1 from "../../../public/images/location/location-1.jpg";
 import location2 from "../../../public/images/location/location-2.jpg";
 import location3 from "../../../public/images/location/location-3.jpg";
@@ -62,15 +64,26 @@ const Traders = ({ allUsers }) => {
 						displayTraders.map(trader => (
 							<div key ={trader.id} className="col-lg-4 col-sm-6">
 								<div className="single-location d-flex align-items-center">
-									<Image
-										src={location1}
-										width={115}
-										height={115}
-										alt="locations"
-									/>
+									{
+										trader.image ?
+											<Image
+											src={trader.image}
+											width={115}
+											height={115}
+											alt="locations"
+											/>
+										:
+											<Image
+											src={fillerPhoto}
+											width={115}
+											height={115}
+											alt="locations"
+											/>
+									}
+									
 
 									<div className="location-content">
-										<h3>{trader.name}</h3>
+										<h3>{shortenText(trader.name, 10)}</h3>
 										<span>New York Upper West Side </span>
 
 										{/* <ul>

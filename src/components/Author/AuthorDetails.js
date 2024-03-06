@@ -48,13 +48,7 @@ const AuthorDetails = ({ user }) => {
 										rel="noopener noreferrer"
 									>
 										<span>
-											Chat Via Whatsapp
-											<Image
-												src={messageImg}
-												alt="message"
-												width="24"
-												height="24"
-											/>
+											Chat
 										</span>
 									</a>
 									<a
@@ -62,13 +56,7 @@ const AuthorDetails = ({ user }) => {
 										className="default-btn"
 									>
 										<span>
-											Call: {user.profile?.phone}
-											<Image
-												src={callImg}
-												alt="call"
-												width="24"
-												height="24"
-											/>
+											Friend Link
 										</span>
 									</a>
 								</div>
