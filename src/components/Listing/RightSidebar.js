@@ -94,40 +94,9 @@ const RightSidebar = ({ currentUser, user, price }) => {
 							setCheckOut(true)
 						}}>Check Out</button>
 					</h3>
-					{/* <h3>Send Message</h3>
-					<form
-						className="contact-form"
-						onSubmit={(e) => e.preventDefault()}
-					>
-						<div className="form-group">
-							<input
-								type="text"
-								className="form-control"
-								placeholder="Your Name"
-							/>
-						</div>
-						<div className="form-group">
-							<input
-								type="email"
-								className="form-control"
-								placeholder="Email"
-							/>
-						</div>
-						<div className="form-group">
-							<textarea
-								className="form-control"
-								placeholder="Your Name"
-								cols="30"
-								rows="6"
-							></textarea>
-						</div>
-						<div className="form-group mb-0">
-							<button type="submit" className="default-btn">
-								Send Message
-							</button>
-						</div>
-					</form> */}
-				{checkOut ? (
+					
+
+				{(checkOut) ? (
 					<div className="MyPayPal">
 						<PayPal/>
 					</div>
@@ -141,7 +110,7 @@ const RightSidebar = ({ currentUser, user, price }) => {
 						}}>Offer Trade</button>
 					</h3>
 					
-					{offerTrade ? (
+					{(offerTrade) ? (
 						<TradePopUp
 						currentUser={currentUser}
 							user={user}

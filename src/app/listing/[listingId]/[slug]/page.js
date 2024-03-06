@@ -1,5 +1,6 @@
 import React from "react";
 import PageBanner from "@/components/Common/PageBanner";
+import { redirect } from "next/navigation";
 import getListingBySlug from "@/actions/getListingBySlug";
 import Listing from "@/components/Listing/Index";
 import { getCurrentUser } from "@/actions/getCurrentUser";
@@ -14,11 +15,17 @@ export const generateMetadata = ({ params }) => {
 };
 
 const page = async ({ params }) => {
-	console.log(params)
 	const listing = await getListingBySlug(params);
 	const currentUser = await getCurrentUser();
-	const cUser = await getUserById({userId: `${currentUser.id}`})
 	const reviews = await getReviewByListingId(params);
+	let cUser;
+
+	try {
+		cUser = await getUserById({userId: `${currentUser.id}`})
+	}
+	catch (err){
+		cUser = null;
+	}
 
 	return (
 		<>

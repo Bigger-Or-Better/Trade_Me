@@ -17,7 +17,7 @@ const Banner = () => {
 		<div className="banner-area bg-1">
 			<div className="container-fluid">
 				<div className="banner-content ptb-100">
-					<h1>Discover<br></br>Adventure in Trading</h1>
+					<h1>There's Adventure <br></br>in Trading</h1>
 
 					<SearchForm />
 
