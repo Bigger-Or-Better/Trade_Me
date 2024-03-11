@@ -32,9 +32,7 @@ const FeaturedItem = ({
 					<h3>
 						<Link href={`/listing/${id}/${slug}`}>{shortenText(title,10)}</Link>
 					</h3>
-					{
-					currentUser && <HeartButton currentUser={currentUser} listingId={id} />
-					}
+					<HeartButton currentUser={currentUser} listingId={id} />
 				</div>
 
 				<ul className="featured-info">

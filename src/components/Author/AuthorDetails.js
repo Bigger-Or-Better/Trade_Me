@@ -7,7 +7,8 @@ import Image from "next/image";
 import { formatDate } from "@/utils/formatDate";
 import Link from "next/link";
 
-const AuthorDetails = ({ user }) => {
+const AuthorDetails = ({ user, friendLinks }) => {
+	console.log(friendLinks)
 	return (
 		<div className="author-details-area pt-100">
 			<div className="container">
@@ -51,14 +52,14 @@ const AuthorDetails = ({ user }) => {
 											Chat
 										</span>
 									</a>
-									<a
-										href={`tel:${user.profile?.phone}`}
+									<div
 										className="default-btn"
+										
 									>
 										<span>
-											Friend Link
+											Send Friend Request
 										</span>
-									</a>
+									</div>
 								</div>
 							</div>
 							<p>{user.profile?.bio}</p>

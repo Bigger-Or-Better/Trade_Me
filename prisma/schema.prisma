@@ -25,6 +25,7 @@ model User {
   profile        Profile?
   listings       Listing[]
   favourites     Favourite[]
+  friendRequests FriendRequest[]
   reviews        Review[]
   blogs          Blog[]
   myHistory      String?
@@ -97,21 +98,28 @@ model Favourite {
   @@index([userId, listingId])
 }
 
-model FriendLink {
+model FriendRequest {
   id         Int      @id @default(autoincrement())
-  senderId   Int
   receiverId Int
+  senderId   Int
   isAccepted Int
   created_at DateTime @default(now())
+
+  user User @relation(fields: [receiverId], references: [id], onDelete: Cascade)
+  @@index([receiverId, senderId])
 }
 
 model TradeOffer {
   id            Int       @id @default(autoincrement())
   ownerId       Int
   traderId      Int
-  listings      Listing[]
+  listingId     Int
+  offers        Listing[]
   tradeDescript String
   created_at    DateTime  @default(now())
+
+
+  @@index([ownerId,traderId])
 }
 
 model Review {
