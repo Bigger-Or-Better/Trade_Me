@@ -28,8 +28,6 @@ model User {
   reviews        Review[]
   blogs          Blog[]
   myHistory      String?
-  FR_Sender      FR_Sender[]
-  FR_Receiver    FR_Receiver[]
 }
 
 model Profile {
