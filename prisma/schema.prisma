@@ -12,15 +12,15 @@ datasource db {
 }
 
 model User {
-  id             Int         @id @default(autoincrement())
+  id             Int             @id @default(autoincrement())
   name           String?
-  email          String?     @unique
+  email          String?         @unique
   emailVerified  DateTime?
   image          String?
   hashedPassword String?
-  role           Role        @default(USER)
-  created_at     DateTime    @default(now())
-  updated_at     DateTime    @updatedAt
+  role           Role            @default(USER)
+  created_at     DateTime        @default(now())
+  updated_at     DateTime        @updatedAt
   accounts       Account[]
   profile        Profile?
   listings       Listing[]
@@ -29,6 +29,8 @@ model User {
   reviews        Review[]
   blogs          Blog[]
   myHistory      String?
+  FR_Sender      FR_Sender[]
+  FR_Receiver    FR_Receiver[]
 }
 
 model Profile {
@@ -79,10 +81,10 @@ model Listing {
   latitude       Float
   longitude      Float
 
-  user         User        @relation(fields: [userId], references: [id], onDelete: Cascade)
-  reviews      Review[]
-  favourites   Favourite[]
-  tradeOffers  TradeOffer? @relation(fields: [id], references: [id])
+  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  reviews     Review[]
+  favourites  Favourite[]
+  tradeOffers TradeOffer? @relation(fields: [id], references: [id])
 
   @@index([userId])
 }
@@ -100,16 +102,37 @@ model Favourite {
 }
 
 model FriendRequest {
-  id         Int      @id @default(autoincrement())
-  receiverId Int
-  senderId   Int
+  id            Int      @id @default(autoincrement())
+  fR_SenderId   Int
+  fR_ReceiverId Int
+  userId        Int?
   isAccepted Int
   created_at DateTime @default(now())
 
-  user User @relation(fields: [receiverId], references: [id], onDelete: Cascade)
-  @@index([receiverId, senderId])
+  sender        FR_Sender   @relation(fields: [fR_SenderId], references: [id])
+  receiver      FR_Receiver @relation(fields: [fR_ReceiverId], references: [id])
+  User          User?       @relation(fields: [userId], references: [id])
+
+  @@index([fR_SenderId, fR_ReceiverId])
 }
 
+model FR_Sender {
+  id            Int             @id @default(autoincrement())
+  userId        Int
+  user          User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  FriendRequest FriendRequest[]
+
+  @@index([id, userId])
+}
+
+model FR_Receiver {
+  id            Int             @id @default(autoincrement())
+  userId        Int
+  user          User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  FriendRequest FriendRequest[]
+
+  @@index([id, userId])
+}
 model TradeOffer {
   id            Int       @id @default(autoincrement())
   ownerId       Int
@@ -135,6 +158,7 @@ model Review {
 
   @@index([userId, listingId])
 }
+
 
 model Blog {
   id         Int      @id @default(autoincrement())
