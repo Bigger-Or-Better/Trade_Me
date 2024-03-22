@@ -50,6 +50,8 @@ const EditListing = ({currentUser, listingToEdit}) => {
 			address: listingToEdit.address,
 			features: listingToEdit.features,
 			category: listingToEdit.category,
+			quanity: listingToEdit.quanity,
+			price: listingToEdit.price,
 			location: //arbitrary
 			{
 				flag: "US",
@@ -207,6 +209,18 @@ const EditListing = ({currentUser, listingToEdit}) => {
 
 						{(currentUser.role == "ADMIN") ? 
 							(
+							<>
+							<div className="col-lg-12">
+							<Input
+								label="Quanity"
+								id="quanityt"
+								type="number"
+								disabled={isLoading}
+								register={register}
+								errors={errors}
+								required
+							/>
+						</div>
 							<div className="col-lg-12">
 							<Input
 								label="Price"
@@ -218,6 +232,7 @@ const EditListing = ({currentUser, listingToEdit}) => {
 								required
 							/>
 						</div>
+							</>
 							):
 							(<></>)
 						}

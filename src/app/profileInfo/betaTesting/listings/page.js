@@ -21,7 +21,7 @@ const page = async ({ searchParams }) => {
 	const newFav = [];
 
 
-	console.log(currentUser, "CURRENT USER", user, "USER")
+	// console.log(currentUser, "CURRENT USER", user, "USER")
 
 
 	favourites.forEach(item => {

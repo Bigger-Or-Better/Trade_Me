@@ -74,6 +74,7 @@ model Listing {
   category       String
   location_value String
   price          Int
+  quantity       Int
   status         Status   @default(Pending)
   latitude       Float
   longitude      Float

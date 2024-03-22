@@ -101,6 +101,8 @@ const UpdateSettingsForm = ({ currentUser }) =>{
 			await axios
 				.delete(`/api/users/${userId}`)
 				.then((response) => {
+					router.refresh();
+					redirect("/");
 				})
 				.catch((error) => {
 					toast.error("Something went wrong!");

@@ -16,6 +16,8 @@ const ListingItem = ({
 	category,
 	description,
 	features,
+	price, 
+	quantity,
 	tradeOffers,
 	onDelete,
 	onEdit,

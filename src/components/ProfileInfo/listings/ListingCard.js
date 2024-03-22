@@ -73,6 +73,8 @@ const ListingCard = ({ postedListings, likedListings, currentUser}) => {
 									"imageSrc":list.imageSrc,
 									"category":list.category,
 									"features":list.features,
+									"price":list.price,
+									"quantity":list.quantity
 								}
 							)}
 							view={viewKey}
@@ -106,6 +108,8 @@ const ListingCard = ({ postedListings, likedListings, currentUser}) => {
 									"imageSrc":list.imageSrc,
 									"category":list.category,
 									"features":list.features,
+									"price":list.price,
+									"quantity":list.quantity
 								}
 							)}
 							view={viewKey}

@@ -12,6 +12,7 @@ import TradePopUp from "./TradePopUp";
 
 const RightSidebar = ({ currentUser, user, price }) => {
 	const [offerTrade, setOfferTrade] = useState(false);
+	const [checkOut, setCheckOut] = useState(false);
 
 	return (
 		<div className="col-lg-4">
