@@ -12,15 +12,15 @@ datasource db {
 }
 
 model User {
-  id             Int             @id @default(autoincrement())
+  id             Int          @id @default(autoincrement())
   name           String?
-  email          String?         @unique
+  email          String?      @unique
   emailVerified  DateTime?
   image          String?
   hashedPassword String?
-  role           Role            @default(USER)
-  created_at     DateTime        @default(now())
-  updated_at     DateTime        @updatedAt
+  role           Role         @default(USER)
+  created_at     DateTime     @default(now())
+  updated_at     DateTime     @updatedAt
   accounts       Account[]
   profile        Profile?
   listings       Listing[]
@@ -28,6 +28,8 @@ model User {
   reviews        Review[]
   blogs          Blog[]
   myHistory      String?
+  FR_Sender      FR_Sender?
+  FR_Receiver    FR_Receiver?
 }
 
 model Profile {
@@ -98,6 +100,30 @@ model Favourite {
   @@index([userId, listingId])
 }
 
+model FriendRequest {
+  id         Int      @id @default(autoincrement())
+  accepted   Int
+  created_at DateTime @default(now())
+  senderId   Int
+  receiverId Int
+
+  sender   FR_Sender   @relation(fields: [senderId], references: [userId], onDelete: Cascade)
+  receiver FR_Receiver @relation(fields: [receiverId], references: [userId], onDelete: Cascade)
+}
+
+model FR_Sender {
+  id            Int             @id @default(autoincrement())
+  userId        Int             @unique
+  user          User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  FriendRequest FriendRequest[]
+}
+
+model FR_Receiver {
+  id            Int             @id @default(autoincrement())
+  userId        Int             @unique
+  user          User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  FriendRequest FriendRequest[]
+}
 
 model TradeOffer {
   id            Int       @id @default(autoincrement())
@@ -108,8 +134,7 @@ model TradeOffer {
   tradeDescript String
   created_at    DateTime  @default(now())
 
-
-  @@index([ownerId,traderId])
+  @@index([ownerId, traderId])
 }
 
 model Review {
@@ -124,7 +149,6 @@ model Review {
 
   @@index([userId, listingId])
 }
-
 
 model Blog {
   id         Int      @id @default(autoincrement())
