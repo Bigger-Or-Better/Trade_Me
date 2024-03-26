@@ -19,11 +19,11 @@ const RichTextEditor = dynamic(() => import("@mantine/rte"), {
 });
 import RTEControls from "@/utils/RTEControls";
 
-const EditListing = ({currentUser}) => {
+const EditListing = ({currentUser, listingToEdit}) => {
 	const [isLoading, setIsLoading] = useState(false);
 	const router = useRouter();
 
-	console.log(currentUser);
+	console.log(listingToEdit);
 
 	const setCustomValue = (id, value) => {
 		setValue(id, value, {
@@ -44,12 +44,14 @@ const EditListing = ({currentUser}) => {
 		control,
 	} = useForm({
 		defaultValues: {
-			title: "",
-			description: "",
-			imageSrc: "",
-			address: "",
-			features: "",
-			category: "",
+			title: listingToEdit.title,
+			description: listingToEdit.description,
+			imageSrc: listingToEdit.imageSrc,
+			address: listingToEdit.address,
+			features: listingToEdit.features,
+			category: listingToEdit.category,
+			quanity: listingToEdit.quanity,
+			price: listingToEdit.price,
 			location: //arbitrary
 			{
 				flag: "US",
@@ -72,17 +74,19 @@ const EditListing = ({currentUser}) => {
 	const imageSrc = watch("imageSrc");
 
 	const onSubmit = (data) => {
+		console.log("DATA", data)
 		setIsLoading(true);
 		axios
-			.post("/api/listings/create", data)
+			.post(`/api/listings/${listingToEdit.id}`, data)
 			.then((response) => {
 				toast.success("Listing created!");
-				// console.log(response, data)
+				console.log(response, data)
 				router.refresh();
 				reset();
 			})
 			.catch((error) => {
 				toast.error("Something went wrong.");
+				console.log(error)
 			})
 			.finally(() => {
 				setIsLoading(false);
@@ -205,6 +209,18 @@ const EditListing = ({currentUser}) => {
 
 						{(currentUser.role == "ADMIN") ? 
 							(
+							<>
+							<div className="col-lg-12">
+							<Input
+								label="Quanity"
+								id="quanityt"
+								type="number"
+								disabled={isLoading}
+								register={register}
+								errors={errors}
+								required
+							/>
+						</div>
 							<div className="col-lg-12">
 							<Input
 								label="Price"
@@ -216,6 +232,7 @@ const EditListing = ({currentUser}) => {
 								required
 							/>
 						</div>
+							</>
 							):
 							(<></>)
 						}
@@ -223,7 +240,7 @@ const EditListing = ({currentUser}) => {
 						
 
 
-						<Button disabled={isLoading} label={"Add Listing"} />
+						<Button disabled={isLoading} label={"Edit Listing"} />
 					</div>
 				</form>
 			</div>

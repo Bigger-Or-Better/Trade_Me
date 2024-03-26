@@ -2,6 +2,7 @@ import React from "react";
 import Listings from "@/components/Listings/Index";
 import getListings from "@/actions/getListings";
 import SearchForm from "@/components/Listings/SearchForm";
+import Banner from "@/components/Index/Banner";
 import { getCurrentUser } from "@/actions/getCurrentUser";
 export const dynamic = "force-dynamic";
 
@@ -15,6 +16,7 @@ const page = async ({ searchParams }) => {
 	return (
 		<>
 			<SearchForm searchParams={searchParams} />
+			{/* <Banner></Banner> */}
 			<Featured currentUser={currentUser} myListings={listings} searchParams={searchParams} />
 		</>
 	);

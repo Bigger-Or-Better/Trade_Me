@@ -2,7 +2,7 @@ import React from "react";
 import { redirect } from "next/navigation";
 import PageBanner from "@/components/Common/PageBanner";
 import { getCurrentUser } from "@/actions/getCurrentUser";
-import ListingCard from "./ListingCard";
+import ListingCard from "@/components/ProfileInfo/listings/ListingCard";
 import getListings from "@/actions/getListings";
 export const dynamic = "force-dynamic";
 import LeftSidebar from "@/components/ProfileInfo/LeftSidebar";

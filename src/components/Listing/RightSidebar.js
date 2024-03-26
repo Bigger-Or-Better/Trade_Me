@@ -8,11 +8,11 @@ import profileImg from "../../../public/images/icon/profiles.svg";
 import pdfIco from "../../../public/images/listing-details-img/pdf.svg";
 import downloadIco from "../../../public/images/listing-details-img/zip.svg";
 import PayPal from "../PayPal/PayPal";
+import TradePopUp from "./TradePopUp";
 
-const RightSidebar = ({ user }) => {
+const RightSidebar = ({ currentUser, user, price }) => {
+	const [offerTrade, setOfferTrade] = useState(false);
 	const [checkOut, setCheckOut] = useState(false);
-
-
 
 	return (
 		<div className="col-lg-4">
@@ -35,134 +35,83 @@ const RightSidebar = ({ user }) => {
 							</p>
 						</div>
 					</div>
-
-					<ul className="info">
-						<li>
-							<i className="ri-map-pin-line"></i>
-							{user?.profile?.address
-								? user.profile.address
-								: "Place Not Added"}
-						</li>
-						{/* <li>
-							<i className="ri-phone-line"></i>
-							<a href={`tel:${user?.profile?.phone}`}>
-								{user?.profile?.phone
-									? user.profile.phone
-									: "Phone Not Added"}
-							</a>{" "}
-							<span>Call Now</span>
-						</li> */}
-					</ul>
+					{
+						currentUser ? <>
+						<ul className="info">
+							<li>
+								<i className="ri-map-pin-line"></i>
+								{user?.profile?.address
+									? user.profile.address
+									: "Place Not Added"}
+							</li>
+						</ul>
 					
-					<ul className="contact-btn">
-						{/* <li>
-							<buttom className="default-btn">
-								<span>
-									Chat Via Whatsapp
-									<Image
-										src={message2}
-										alt="Image"
-										width={24}
-										height={24}
-									/>
-								</span>
-							</buttom>
-						</li> */}
-						<li>
-							<Link
-								href={`/author/${user.id}`}
-								className="default-btn active"
+						<ul className="contact-btn">
+							<li>
+								<Link
+									href={`/author/${user.id}`}
+									className="default-btn active"
+								>
+									<span>
+										View Profile
+										<Image
+											src={profileImg}
+											alt="Image"
+											width={24}
+											height={24}
+										/>
+									</span>
+								</Link>
+							</li>
+							<li
 							>
-								<span>
-									View Profile
-									<Image
-										src={profileImg}
-										alt="Image"
-										width={24}
-										height={24}
-									/>
-								</span>
-							</Link>
-						</li>
-					</ul>
+								<div
+									className="default-btn"
+								>
+									<span>
+										Request Friend Link
+										
+									</span>
+								</div>
+							</li>
+							{(price)?
+								<li className="">
+										<span 
+										className="default-btn"
+										onClick={()=>{
+											setCheckOut(true)
+										}}>Check Out</span>
+									{(checkOut) ? (
+										<li className="MyPayPal">
+											<PayPal/>
+										</li>
+									):(<></>)}
+								</li>
+							: 				
+								<li className="">
+										<span 
+											className="default-btn"
+											onClick={()=>{
+												setOfferTrade(true)
+											}}>Offer Trade</span>
+									
+									{(offerTrade) ? (
+										<TradePopUp
+										currentUser={currentUser}
+											user={user}
+										></TradePopUp>
+									):(<></>)}
+								</li>
+					}	
+						</ul>
+						</>: <></>
+					}
+
 				</div>
 
-				<div className="bg-right-sidebar">
-					<h3>
-						<button onClick={()=>{
-							setCheckOut(true)
-						}}>Check Out</button>
-					</h3>
-					{/* <h3>Send Message</h3>
-					<form
-						className="contact-form"
-						onSubmit={(e) => e.preventDefault()}
-					>
-						<div className="form-group">
-							<input
-								type="text"
-								className="form-control"
-								placeholder="Your Name"
-							/>
-						</div>
-						<div className="form-group">
-							<input
-								type="email"
-								className="form-control"
-								placeholder="Email"
-							/>
-						</div>
-						<div className="form-group">
-							<textarea
-								className="form-control"
-								placeholder="Your Name"
-								cols="30"
-								rows="6"
-							></textarea>
-						</div>
-						<div className="form-group mb-0">
-							<button type="submit" className="default-btn">
-								Send Message
-							</button>
-						</div>
-					</form> */}
-				{checkOut ? (
-					<div className="MyPayPal">
-						<PayPal/>
+	
 					</div>
-				):(<></>)}
 				</div>
-
-
-				{/* <div className="bg-right-sidebar">
-					<h3>Attachment</h3>
-					<ul className="attachment-btn">
-						<li>
-							<button>
-								<Image
-									src={pdfIco}
-									alt="Image"
-									width="36"
-									height="45"
-								/>
-								Download pDF File
-							</button>
-						</li>
-						<li>
-							<button>
-								<Image
-									src={downloadIco}
-									alt="Image"
-									width="36"
-									height="45"
-								/>
-								Download zip File
-							</button>
-						</li>
-					</ul>
-				</div> */}
-			</div>
-		</div>
 	);
 };
 

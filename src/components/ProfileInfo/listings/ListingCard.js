@@ -10,6 +10,7 @@ import EditListing from "@/components/ProfileInfo/listings/EditListing";
 const ListingCard = ({ postedListings, likedListings, currentUser}) => {
 	const router = useRouter();
 	const [viewKey, setViewKey] = useState("Posted");
+	const [listingToEdit, setListingToEdit] = useState({});
 
 	// let element = 
 	// 	<ListingItem
@@ -18,6 +19,7 @@ const ListingCard = ({ postedListings, likedListings, currentUser}) => {
 	// 		{...list}
 	// 		onDelete={() => deleteListing(list.id)}
 	// 		internalChange={()=>setViewKey('Edit')}
+	// onEdit={() => setListingToEdit()}
 	// 		view={viewKey}
 	// 	/>
 
@@ -40,7 +42,7 @@ const ListingCard = ({ postedListings, likedListings, currentUser}) => {
 	};
 
 	const alterView = (e) =>{
-		console.log(e.target.innerHTML);
+		// console.log(e.target.innerHTML);
 		if (e.target.innerHTML.includes("Posted")){ 
 			setViewKey("Posted");
 		}
@@ -52,7 +54,6 @@ const ListingCard = ({ postedListings, likedListings, currentUser}) => {
 		}
 	}
 
-
 	const renderSwitch = (str) =>{
 		switch(str){
 			case 'Liked':
@@ -63,14 +64,31 @@ const ListingCard = ({ postedListings, likedListings, currentUser}) => {
 							key={list.id}
 							{...list}
 							onDelete={() => deleteListing(list.id)}
-							internalChange={()=>setViewKey('Edit')}
+							internalChange={()=>setViewKey('Liked')}
+							onEdit={() => setListingToEdit(
+								{
+									"id":list.id,
+									"title":list.title,
+									"description":list.description,
+									"imageSrc":list.imageSrc,
+									"category":list.category,
+									"features":list.features,
+									"price":list.price,
+									"quantity":list.quantity
+								}
+							)}
 							view={viewKey}
 						/>
 					))
 				);
 			case 'Edit':
 				return(
-						<EditListing currentUser={currentUser}/>
+					<>
+						<h1></h1>
+						<EditListing 
+							currentUser={currentUser}
+							listingToEdit={listingToEdit}/>
+					</>
 				);
 			case 'Posted':
 			default:
@@ -82,6 +100,18 @@ const ListingCard = ({ postedListings, likedListings, currentUser}) => {
 							{...list}
 							onDelete={() => deleteListing(list.id)}
 							internalChange={()=>setViewKey('Edit')}
+							onEdit={() => setListingToEdit(
+								{
+									"id":list.id,
+									"title":list.title,
+									"description":list.description,
+									"imageSrc":list.imageSrc,
+									"category":list.category,
+									"features":list.features,
+									"price":list.price,
+									"quantity":list.quantity
+								}
+							)}
 							view={viewKey}
 						/>
 					))

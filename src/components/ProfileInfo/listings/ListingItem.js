@@ -14,13 +14,18 @@ const ListingItem = ({
 	user,
 	created_at,
 	category,
+	description,
+	features,
+	price, 
+	quantity,
 	tradeOffers,
 	onDelete,
+	onEdit,
 	internalChange,
 	view
 }
 ) => {
-	console.log(view);
+	// console.log(title);
 	return (
 		<div className="col-md-6 col-xl-4 mb-4">
 			<div className="db-listing-card card">
@@ -59,7 +64,20 @@ const ListingItem = ({
 							<>
 								<button
 									className="btn btn-primary btn-sm"
-									onClick={() => internalChange('Edit')}
+									onClick={(e) => {
+										console.log(title, e.target.innerHTML);
+										internalChange();
+										onEdit()
+										// onEdit(
+										// 	{
+										// 		title:title,
+										// 		description:description,
+										// 		imageSrc:imageSrc,
+										// 		category:category,
+										// 		features:features
+										// 	}
+										// )
+									}}
 									>
 									Edit
 								</button>

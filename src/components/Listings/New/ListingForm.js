@@ -59,7 +59,7 @@ const ListingForm = ({currentUser}) => {
 				region: "Americas",
 				value: "US"
 			},
-			tradeOffers:"",
+			quanity:1,
 			price: 0,
 		},
 	});
@@ -205,17 +205,32 @@ const ListingForm = ({currentUser}) => {
 
 						{(currentUser.role == "ADMIN") ? 
 							(
+								<>
+							<div className="col-lg-12">
+								<Input
+									label="Quanity"
+									id="quanity"
+									type="number"
+									min="0"
+									disabled={isLoading}
+									register={register}
+									errors={errors}
+									required
+								/>
+							</div>
 							<div className="col-lg-12">
 							<Input
 								label="Price"
 								id="price"
 								type="number"
+								min="0"
 								disabled={isLoading}
 								register={register}
 								errors={errors}
 								required
 							/>
 						</div>
+								</>
 							):
 							(<></>)
 						}
