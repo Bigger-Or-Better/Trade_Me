@@ -43,7 +43,7 @@ const Navbar = ({ currentUser }) => {
 							<Link className="navbar-brand" href="/">
 								<Image
 									src={logo}
-									width={120}
+									width={240}
 									height={40}
 									className="main-logo"
 									alt="logo"

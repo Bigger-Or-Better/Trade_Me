@@ -286,7 +286,7 @@
 }
 @media all and (min-width: 992px) {
   .navbar .navbar-brand {
-    margin-right: 50px;
+    margin-right: 25px;
   }
   .navbar .navbar-collapse .navbar-nav .nav-item > .nav-link {
     font-size: 20px;
