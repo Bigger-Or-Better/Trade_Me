@@ -91,12 +91,7 @@ const FaqContent = () => {
               </AccordionItemHeading>
               <AccordionItemPanel>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Egestas facilisis metus vitae mattis velit ac amet, mattis an
-                  Quam eu aliquam quisque commodo feugiat placerat elit. Eget
-                  mi, morbi tincidunt dolor. Placerat enim rid iculus idemer
-                  feugiat faucibus non pulvinar tincidunt. Vulputate tincidunt
-                  sed interdum interdum porta enim.
+                  Because you should
                 </p>
               </AccordionItemPanel>
             </AccordionItem>
