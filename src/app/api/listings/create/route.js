@@ -23,6 +23,7 @@ export async function POST(request) {
 		location,
 		tradeOffers,
 		price,
+		quantity
 	} = body;
 
 	let slug = slugify(title);
@@ -57,6 +58,7 @@ export async function POST(request) {
 			features,
 			category,
 			price: parseInt(price, 10),
+			quantity: parseInt(quantity, 10),
 			location_value: "United States", //arbitrary
 			latitude: 38, //arbitrary
 			longitude: -97, //arbitrary

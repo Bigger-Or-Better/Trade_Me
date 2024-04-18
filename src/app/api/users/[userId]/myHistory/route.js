@@ -14,6 +14,7 @@ export async function POST(request) {
 	const body = await request.json();
 
 	const { myHistory } = body;
+	console.log(myHistory);
 
 	let profile = await prisma.user.update({
 		where: {
