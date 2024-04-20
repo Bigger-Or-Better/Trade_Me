@@ -12,6 +12,7 @@ const SearchForm = ({ searchParams }) => {
 	const [category, setCategory] = useState("");
 	const [locationValue, setLocationValue] = useState("");
 	const router = useRouter();
+	console.log(searchParams)
 
 	useEffect(() => {
 		const { category, location_value } = searchParams;

@@ -12,7 +12,7 @@ import menuActive from "../../../public/images/menu-active.png";
 const Footer = () => {
 	return (
 		<>
-			<div className="footer-area pt-100 pb-70">
+			<div className="footer-area pt-50 pb-35">
 				<div className="container">
 					<div className="row">
 						<div className="col-lg-4 col-sm-6">

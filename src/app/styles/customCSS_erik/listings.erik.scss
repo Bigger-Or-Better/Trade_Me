@@ -1,0 +1,74 @@
+/*# sourceMappingURL=customCSS_erik.css.map */
+
+
+//min-width:0
+@mixin mobListings{
+  .filterSidebar{
+    position:relative;
+    .db-sidebar{
+      position:fixed;
+      display:flex;
+      flex-direction:column;
+      border: 1px solid #AFAFAF;
+      input,select,button{
+        margin:0.5rem 0;
+        padding: 0.25rem;
+      }
+      button{
+        background-color: #AFAFAF;
+        transition: 0.25s;
+        &:hover {
+          background-color: #F0002A;
+          color:white;
+        }
+        &:active{
+          background-color: #AF0000;
+          color:white;
+        }
+      }
+    }
+  }
+  .listingCard_area{
+    .row{
+      .col-md-6{
+        .db-listing-card{
+          .card-img-top{}
+          .card-body{
+            .card-title{}
+            .fs-4{}
+            .row{
+              display:flex;
+              flex-direction:row;
+              justify-content:space-evenly;
+              .btn{
+                background-color: #F0002A;
+                border:none;
+                width: 75%;
+                &:hover,&:active{
+                  background-color: #AF0000;
+                }
+              }
+              .wish-btn{
+                background-color: transparent;
+                width: fit-content;
+                .ri-heart-fill{
+                  color:#F0002A
+                }
+                .ri-heart-line{
+                  // color:transparent;
+                }
+              }
+            }
+          }
+
+        }
+      }
+    }
+  }
+}
+//min-width:760px
+@mixin minListings{}
+//min-width:992px
+@mixin medListings{}
+//min-width:1200px
+@mixin maxListings{}
