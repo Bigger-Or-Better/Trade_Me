@@ -27,8 +27,8 @@ const FaqContent = () => {
               </AccordionItemHeading>
               <AccordionItemPanel>
                 <p>
-                  Imagine a social media app mixed with an e-commerce website that doesnt' involve dealing with money for the most part. That's the basic gist of Trade-Ya. <br/><br/>
-                  This online web service grants users the ability to get rid of stuff they don't want (but unable to sell) in exchange for stuff they would have interest in (and might not be able to afford). In the process, users can meet new people and interact with each other. <br/><br/>
+                  Imagine a social media app mixed with an e-commerce website that does not involve dealing with money for the most part. That is the basic gist of Trade-Ya. <br/><br/>
+                  This online web service grants users the ability to get rid of stuff they do not want (but unable to sell) in exchange for stuff they would have interest in (and might not be able to afford). In the process, users can meet new people and interact with each other. <br/><br/>
                   If you've ever bartered trading cards with other kids during your younger years, gave a friend a sweet Christmas present because they gave you an awesome birthday present, or was tipped of with a useful secret from a friend who owed ya; then you know how fun it trading can be!
                 </p>
               </AccordionItemPanel>
@@ -42,7 +42,13 @@ const FaqContent = () => {
               </AccordionItemHeading>
               <AccordionItemPanel>
                 <p>
-                  Step 1: 
+                  Step 0: create your own profile<br/>
+                  Step 1: upload items to use as bartering materials. <br/>
+                  Step 2: find listings posted by other traders that you have interest in <br/>
+                  Step 3: communicate and negotiate with owner of desired item.<br/>
+                  Step 4: meet the other trader at a secure location to exchange agreed trading items.<br/>
+                  Step 5: return to website to confirm trade sucess<br/>
+                  Step 6: repeat!
                 </p>
               </AccordionItemPanel>
             </AccordionItem>
@@ -55,12 +61,11 @@ const FaqContent = () => {
               </AccordionItemHeading>
               <AccordionItemPanel>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Egestas facilisis metus vitae mattis velit ac amet, mattis an
-                  Quam eu aliquam quisque commodo feugiat placerat elit. Eget
-                  mi, morbi tincidunt dolor. Placerat enim rid iculus idemer
-                  feugiat faucibus non pulvinar tincidunt. Vulputate tincidunt
-                  sed interdum interdum porta enim.
+                  Aside from being a unique business idea, Trade-Ya was created for the following reasons:<br/>
+                  - Help people who are low on money obtain needed or desired items<br/>
+                  - Help people get rid of excessive items that they can't sell of<br/>
+                  - Give people opportunities to meet others in a fun and adventurous new way!
+
                 </p>
               </AccordionItemPanel>
             </AccordionItem>
@@ -73,12 +78,9 @@ const FaqContent = () => {
               </AccordionItemHeading>
               <AccordionItemPanel>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Egestas facilisis metus vitae mattis velit ac amet, mattis an
-                  Quam eu aliquam quisque commodo feugiat placerat elit. Eget
-                  mi, morbi tincidunt dolor. Placerat enim rid iculus idemer
-                  feugiat faucibus non pulvinar tincidunt. Vulputate tincidunt
-                  sed interdum interdum porta enim.
+                  Trade-Ya is as safe as you make it!<br/> 
+                  It is encouraged for users to make smart choices in who they interact with.<br/>
+                  Follow this link for safety tips!
                 </p>
               </AccordionItemPanel>
             </AccordionItem>
@@ -91,23 +93,19 @@ const FaqContent = () => {
               </AccordionItemHeading>
               <AccordionItemPanel>
                 <p>
-                  Because you should
+                  You could turn to Facebook Marketplace or KSL or some other online resource to find new stuff for free or sell stuff you don't need.<br/>
+                  You could ALSO use Trade-Ya as an additional means to fulfill the above objectives. Why limit yourself?
                 </p>
               </AccordionItemPanel>
             </AccordionItem>
 
             <AccordionItem uuid="f">
               <AccordionItemHeading>
-                <AccordionItemButton>How To Add Listings?</AccordionItemButton>
+                <AccordionItemButton>Anything else I should know?</AccordionItemButton>
               </AccordionItemHeading>
               <AccordionItemPanel>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Egestas facilisis metus vitae mattis velit ac amet, mattis an
-                  Quam eu aliquam quisque commodo feugiat placerat elit. Eget
-                  mi, morbi tincidunt dolor. Placerat enim rid iculus idemer
-                  feugiat faucibus non pulvinar tincidunt. Vulputate tincidunt
-                  sed interdum interdum porta enim.
+                  Trade-Ya is still in its development phase. Please be patient. We encourage constructive feedback pertaining how Trade-Ya can improve.
                 </p>
               </AccordionItemPanel>
             </AccordionItem>

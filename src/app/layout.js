@@ -46,7 +46,8 @@ export default async function RootLayout({ children }) {
 
 	return (
 		<html lang="en">
-			<body suppressHydrationWarning={true}>
+			{/* <body suppressHydrationWarning={true}>*/} 
+			<body>
 				<TosterProvider />
 				<Navbar currentUser={currentUser} />
 				{children}
