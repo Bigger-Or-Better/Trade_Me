@@ -18,10 +18,10 @@ import DetailsImages from "./DetailsImages";
 
 
 const Index = ({ currentUser, listing, reviews }) => {
-	console.log(currentUser);
+	console.log(currentUser.myHistory);
 
 	// 1) Check if History Exists
-	if (currentUser && listing.user.id !== currentUser.id){
+	if (currentUser && (listing.user.id !== currentUser.id)){
 		let myHistory_string = currentUser.myHistory;
 		let clear = true;
 		let existingItem;
@@ -45,6 +45,7 @@ const Index = ({ currentUser, listing, reviews }) => {
 			}
 		});
 
+		console.log(clear)
 
 		if (clear == true){
 			// 3a) if current history is 10, remove 1
@@ -56,7 +57,6 @@ const Index = ({ currentUser, listing, reviews }) => {
 			// 3b) add current viewing to existing history
 			myHistory_string = myHistory_string + listing.id;
 			let data = {"myHistory": myHistory_string};
-
 			// 4) update myHistory
 			axios
 			.post(`/api/users/${currentUser.id}/myHistory`, data)
@@ -88,6 +88,7 @@ const Index = ({ currentUser, listing, reviews }) => {
 				toast.error("Something went wrong!");
 			})
 		}
+		// console.log(myHistory_string)
 	}
 
 	return (

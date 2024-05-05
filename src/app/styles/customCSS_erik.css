@@ -14,6 +14,7 @@
 
 
 
+
 @media all and (min-width: 0px) {
   a.hover,
   .default-btn:hover {
@@ -212,6 +213,8 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    background-color: #F5f5f5;
+    border: 1px solid #AFAFAF;
     padding: 15px;
     margin: 5px auto;
   }
@@ -231,6 +234,13 @@
   }
   .location-area .container .row .col-lg-4.col-sm-6 .single-location .location-content ul {
     display: none;
+  }
+  .location-area .container .row .col-lg-4.col-sm-6 .single-location:hover {
+    box-shadow: 0.5px 0.5px 25px #AFAFAF;
+  }
+  .location-area .container .row .col-lg-4.col-sm-6 .single-location:hover .location-content h3, .location-area .container .row .col-lg-4.col-sm-6 .single-location:hover .location-content span {
+    color: #F0002A;
+    transition: 0.5s;
   }
   .location-area .container .row .col-lg-4.col-sm-6:nth-of-type(n+5) {
     display: none;
@@ -259,6 +269,27 @@
   }
   .bg-right-sidebar .MyPayPal div > div > div:nth-child(2) {
     display: none !important;
+  }
+  .listingCard_area .row .col-md-6 .db-listing-card .card-body .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  .listingCard_area .row .col-md-6 .db-listing-card .card-body .row .btn {
+    background-color: #F0002A;
+    border: none;
+    width: 75%;
+  }
+  .listingCard_area .row .col-md-6 .db-listing-card .card-body .row .btn:hover, .listingCard_area .row .col-md-6 .db-listing-card .card-body .row .btn:active {
+    background-color: #AF0000;
+  }
+  .listingCard_area .row .col-md-6 .db-listing-card .card-body .row .wish-btn {
+    background-color: transparent;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+  .listingCard_area .row .col-md-6 .db-listing-card .card-body .row .wish-btn .ri-heart-fill {
+    color: #F0002A;
   }
 }
 @media all and (min-width: 760px) {
@@ -392,5 +423,26 @@
   .offer-area.featured-ads .container .section-title-wrap .left-title ul li button,
   .offer-area.featured-ads .container .section-title-wrap .section-title-right ul li button {
     padding: 10px 15px;
+  }
+  .filterSidebar {
+    position: relative;
+  }
+  .filterSidebar .db-sidebar {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #AFAFAF;
+  }
+  .filterSidebar .db-sidebar input, .filterSidebar .db-sidebar select, .filterSidebar .db-sidebar button {
+    margin: 0.5rem 0;
+    padding: 0.25rem;
+  }
+  .filterSidebar .db-sidebar button {
+    background-color: #F0002A;
+    color: white;
+    transition: 0.25s;
+  }
+  .filterSidebar .db-sidebar button:hover, .filterSidebar .db-sidebar button:active {
+    background-color: #AF0000;
   }
 }/*# sourceMappingURL=customCSS_erik.css.map */

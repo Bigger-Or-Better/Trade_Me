@@ -40,7 +40,7 @@ const Suggestions = ({ currentUser }) => {
 				});
 		};
 		return (
-			<div className="offer-area bg-color-fffcf8">
+			<div className="offer-area">
 				<div className="container">
 					<div className="section-title-wrap">
 						<div className="section-title left-title">

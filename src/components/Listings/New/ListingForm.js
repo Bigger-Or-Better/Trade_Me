@@ -23,7 +23,7 @@ const ListingForm = ({currentUser}) => {
 	const [isLoading, setIsLoading] = useState(false);
 	const router = useRouter();
 
-	console.log(currentUser);
+	// console.log(currentUser);
 
 	const setCustomValue = (id, value) => {
 		setValue(id, value, {
@@ -59,7 +59,7 @@ const ListingForm = ({currentUser}) => {
 				region: "Americas",
 				value: "US"
 			},
-			quanity:1,
+			quantity:1,
 			price: 0,
 		},
 	});
@@ -72,6 +72,7 @@ const ListingForm = ({currentUser}) => {
 	const imageSrc = watch("imageSrc");
 
 	const onSubmit = (data) => {
+		console.log(data)
 		setIsLoading(true);
 		axios
 			.post("/api/listings/create", data)
@@ -110,22 +111,6 @@ const ListingForm = ({currentUser}) => {
 							/>
 						</div>
 						<div className="col-lg-12">
-							<div className="form-group">
-								<Controller
-									name="description"
-									control={control}
-									defaultValue=""
-									render={({ field }) => (
-										<RichTextEditor
-											controls={RTEControls}
-											{...field}
-											placeholder="Description"
-										/>
-									)}
-								/>
-							</div>
-						</div>
-						<div className="col-lg-12">
 							<ImageUpload
 								onChange={(value) =>
 									setCustomValue("imageSrc", value)
@@ -133,16 +118,6 @@ const ListingForm = ({currentUser}) => {
 								value={imageSrc}
 							/>
 						</div>
-
-						{/* <div className="col-lg-12">
-							<CountrySelect
-								value={location}
-								onChange={(value) =>
-									setCustomValue("location", value)
-								}
-							/>
-						</div> */}
-
 						<div className="col-lg-12">
 							<div className="form-group">
 								<Select
@@ -167,6 +142,32 @@ const ListingForm = ({currentUser}) => {
 								/>
 							</div>
 						</div>
+						<div className="col-lg-12">
+							<div className="form-group">
+								<Controller
+									name="description"
+									control={control}
+									defaultValue=""
+									render={({ field }) => (
+										<RichTextEditor
+											controls={RTEControls}
+											{...field}
+											placeholder="Description"
+										/>
+									)}
+								/>
+							</div>
+						</div>
+						{/* <div className="col-lg-12">
+							<CountrySelect
+								value={location}
+								onChange={(value) =>
+									setCustomValue("location", value)
+								}
+							/>
+						</div> */}
+
+
 
 						{/* <div className="col-lg-12">
 							<Input

@@ -7,13 +7,14 @@ import FeaturedItem from "./FeaturedItem";
 import { toast } from "react-hot-toast";
 import { categories } from "@/libs/Categories";
 
-const Featured = ({ currentUser, myListings,searchParams }) => {
+const Featured = ({ currentUser, allListings,searchParams }) => {
 	let viewableListings; 
+	console.log(allListings);
 	if (currentUser){
-		viewableListings = myListings.filter(item => ((item.price == 0) && (item.userId !== currentUser.id))); //hide self posted listings
+		viewableListings = allListings.filter(item => ((item.price == 0) && (item.userId !== currentUser.id))); //hide self posted listings
 	}
 	else{
-	viewableListings = myListings.filter(item => ((item.price == 0))); 
+	viewableListings = allListings.filter(item => ((item.price == 0))); 
 	}
 	const [listings, setListings] = useState(viewableListings);
 	const [cat, setCat] = useState("all");
@@ -36,6 +37,7 @@ const Featured = ({ currentUser, myListings,searchParams }) => {
 				toast.error("Something went wromg!");
 			});
 	};
+	
 	return (
 		<div className="shop offer-area bg-color-fffcf8 featured-ads">
 			<div className="container">
