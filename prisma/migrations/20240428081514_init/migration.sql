@@ -23,11 +23,6 @@ CREATE TABLE `Profile` (
     `gender` VARCHAR(191) NULL,
     `address` VARCHAR(191) NULL,
     `phone` VARCHAR(191) NULL,
-    `website` VARCHAR(191) NULL,
-    `twitter` VARCHAR(191) NULL,
-    `facebook` VARCHAR(191) NULL,
-    `linkedin` VARCHAR(191) NULL,
-    `youtube` VARCHAR(191) NULL,
 
     UNIQUE INDEX `Profile_userId_key`(`userId`),
     PRIMARY KEY (`id`)
@@ -67,6 +62,7 @@ CREATE TABLE `Listing` (
     `category` VARCHAR(191) NOT NULL,
     `location_value` VARCHAR(191) NOT NULL,
     `price` INTEGER NOT NULL,
+    `quantity` INTEGER NOT NULL,
     `status` ENUM('Pending', 'Approved') NOT NULL DEFAULT 'Pending',
     `latitude` DOUBLE NOT NULL,
     `longitude` DOUBLE NOT NULL,
@@ -83,6 +79,48 @@ CREATE TABLE `Favourite` (
     `created_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
 
     INDEX `Favourite_userId_listingId_idx`(`userId`, `listingId`),
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `FriendRequest` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `accepted` INTEGER NOT NULL,
+    `created_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `senderId` INTEGER NOT NULL,
+    `receiverId` INTEGER NOT NULL,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `FR_Sender` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `userId` INTEGER NOT NULL,
+
+    UNIQUE INDEX `FR_Sender_userId_key`(`userId`),
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `FR_Receiver` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `userId` INTEGER NOT NULL,
+
+    UNIQUE INDEX `FR_Receiver_userId_key`(`userId`),
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `TradeOffer` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `ownerId` INTEGER NOT NULL,
+    `traderId` INTEGER NOT NULL,
+    `listingId` INTEGER NOT NULL,
+    `tradeDescript` VARCHAR(191) NOT NULL,
+    `created_at` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+
+    INDEX `TradeOffer_ownerId_traderId_idx`(`ownerId`, `traderId`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
