@@ -3,31 +3,39 @@
 import React, {useState, useEffect} from "react";
 import Link from 'next/link';
 import { usePathname } from "next/navigation";
+import { categories } from "@/libs/Categories";
 
-const LeftSidebar = ({
-  listings, 
+const FilterSidebar = ({
+  allTradeListings, 
   currentUser,
-  setViewableListings}) => {
+  setViewableListings,
+  searchParams}) => {
     const currentRoute = usePathname();
     const [title, setTitle] = useState("");
     const [distance, setDistance] = useState("");
     const [category, setCategory] = useState("Any");
 
+    console.log(categories);
 
     const filterListings = (
     ) =>{
       if (category != "Any"){
-        setViewableListings(listings.filter(item =>(
-          ((item.price == 0)&&(item.userId !== currentUser.id)) &&
-          ((item.title.includes(title))&&(item.category == category))
+        setViewableListings(allTradeListings.filter(item =>(
+          (
+            (item.title.toLowerCase().includes(title.toLowerCase()))&&
+            (item.category == category)
+          )
         )));
+      }
+      else if (!title){
+        setViewableListings(allTradeListings);
       }
       else {
-        setViewableListings(listings.filter(item =>(
-          ((item.price == 0)&&(item.userId !== currentUser.id))&&
-          ((item.title.includes(title))) 
+        setViewableListings(allTradeListings.filter(item =>(
+          (item.title.toLowerCase().includes(title.toLowerCase())) 
         )));
       }
+      console.log(allTradeListings);
     }
 
 
@@ -48,10 +56,11 @@ const LeftSidebar = ({
           <select
             value={category}
             onChange={e => setCategory(e.target.value)} >
-              <option value="Any">Any</option>
-              <option value="Family">Family</option>
-              <option value="Entertainment">Entertainment</option>
-              <option value="Apparel">Apparel</option>
+              {
+                categories.map((cat) => (
+                  <option key={cat.value} value={cat.value}>{cat.value}</option>
+                ))
+              }
           </select>
           <button
             onClick={() =>{filterListings()}}
@@ -141,4 +150,4 @@ const LeftSidebar = ({
     )
 }
 
-export default LeftSidebar;
+export default FilterSidebar;

@@ -20,9 +20,17 @@ const page = async ({ searchParams }) => {
 	const user = await getUserById({ userId: `${currentUser.id}` });
 	const favourites = await getMyFavourites();
 	const newFav = [];
-	const {listings} = await getListings(searchParams)
+	const {listings} = await getListings( //get all listings instead of filtered few, that way All listings are available if reset is desired
+		{
+			"title":"",
+			"category":""
+		}
+	)
 	const allTradeListings = listings.filter(item => ((item.price == 0) && (item.userId !== currentUser.id))); //hide self posted listings;
+	
+	
 	console.log(allTradeListings)
+
 	
 
 	// console.log(currentUser, "CURRENT USER", user, "USER")
@@ -41,7 +49,8 @@ const page = async ({ searchParams }) => {
 				<div className="container">
 					<ListingFeatures
 						currentUser={currentUser}
-						listings={listings}/>
+						allTradeListings={allTradeListings}
+						searchParams={searchParams}/>
 				</div>
 			</div>
 		</>

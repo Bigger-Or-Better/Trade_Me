@@ -9,12 +9,7 @@ import EditListing from "@/components/ProfileInfo/listings/EditListing";
 
 const ListingCard = ({ viewableListings, currentUser}) => {
 	const router = useRouter();
-	// const [viewKey, setViewKey] = useState("Posted");
-	// const [listingToEdit, setListingToEdit] = useState({});
-
-	console.log(viewableListings);
-
-
+	
 	return (
 		<div className={'row'}>
 			{/* <div>

@@ -270,31 +270,6 @@
   .bg-right-sidebar .MyPayPal div > div > div:nth-child(2) {
     display: none !important;
   }
-  .filterSidebar {
-    position: relative;
-  }
-  .filterSidebar .db-sidebar {
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #AFAFAF;
-  }
-  .filterSidebar .db-sidebar input, .filterSidebar .db-sidebar select, .filterSidebar .db-sidebar button {
-    margin: 0.5rem 0;
-    padding: 0.25rem;
-  }
-  .filterSidebar .db-sidebar button {
-    background-color: #AFAFAF;
-    transition: 0.25s;
-  }
-  .filterSidebar .db-sidebar button:hover {
-    background-color: #F0002A;
-    color: white;
-  }
-  .filterSidebar .db-sidebar button:active {
-    background-color: #AF0000;
-    color: white;
-  }
   .listingCard_area .row .col-md-6 .db-listing-card .card-body .row {
     display: flex;
     flex-direction: row;
@@ -448,5 +423,26 @@
   .offer-area.featured-ads .container .section-title-wrap .left-title ul li button,
   .offer-area.featured-ads .container .section-title-wrap .section-title-right ul li button {
     padding: 10px 15px;
+  }
+  .filterSidebar {
+    position: relative;
+  }
+  .filterSidebar .db-sidebar {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #AFAFAF;
+  }
+  .filterSidebar .db-sidebar input, .filterSidebar .db-sidebar select, .filterSidebar .db-sidebar button {
+    margin: 0.5rem 0;
+    padding: 0.25rem;
+  }
+  .filterSidebar .db-sidebar button {
+    background-color: #F0002A;
+    color: white;
+    transition: 0.25s;
+  }
+  .filterSidebar .db-sidebar button:hover, .filterSidebar .db-sidebar button:active {
+    background-color: #AF0000;
   }
 }/*# sourceMappingURL=customCSS_erik.css.map */
