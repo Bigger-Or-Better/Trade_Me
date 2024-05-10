@@ -15,7 +15,7 @@ const ListingFeatures = ({currentUser, allTradeListings, searchParams}) => {
     (searchParams.category || searchParams.title) ? 
       allTradeListings.filter(item =>(
         item.title.toLowerCase().includes(
-          searchParams.title ? searchParams.title.toLowerCase() : searchParams)||
+          searchParams.title ? searchParams.title.toLowerCase() : searchParams) ||
         item.category == searchParams.category)) : 
       allTradeListings
   )
