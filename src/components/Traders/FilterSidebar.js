@@ -1,61 +1,52 @@
 "use client";
 
-import React, {useState, useEffect, useCallback} from "react";
+import React, {useState, useEffect} from "react";
 import Link from 'next/link';
 import { usePathname } from "next/navigation";
 import { categories } from "@/libs/Categories";
-import { useRouter } from "next/navigation";
 
 const FilterSidebar = ({
-  allTradeListings, 
+  allUsers, 
   currentUser,
-  setViewableListings,
+  setViewableTraders,
   searchParams}) => {
     const currentRoute = usePathname();
-    const [title, setTitle] = useState("");
+    const [name, setName] = useState("");
     const [distance, setDistance] = useState("");
     const [category, setCategory] = useState("Any");
-    const router = useRouter();
 
     // console.log(categories);
 
-    //KEEP
-    const filterListings = (
+    const filterTraders = (
     ) =>{
       if (category != "Any"){
-        setViewableListings(allTradeListings.filter(item =>(
+        setViewableTraders(allUsers.filter(trader =>(
           (
-            (item.title.toLowerCase().includes(title.toLowerCase()))&&
-            (item.category == category)
+            (trader.name.toLowerCase().includes(name.toLowerCase()))
+            // &&(trader.category == category)
           )
         )));
       }
-      else if (!title){
-        setViewableListings(allTradeListings);
+      else if (!name){
+        setViewableTraders(allUsers);
       }
       else {
-        setViewableListings(allTradeListings.filter(item =>(
-          (item.title.toLowerCase().includes(title.toLowerCase())) 
+        setViewableTraders(allUsers.filter(trader =>(
+          (trader.name.toLowerCase().includes(name.toLowerCase())) 
         )));
       }
-      // console.log(allTradeListings);
+      // console.log(allUsers);
     }
 
-
-    // const filterListings = useCallback(() => {
-    //   router.push(
-    //     `/listings?title=${title}&category=${category}`
-    //   );
-    // }, [title, category, router]);
 
     return (
       <>
         <div className="db-sidebar">
           <input 
             type="text" 
-            placeholder="Search Listings"
-            value={title}
-            onInput={e => setTitle(e.target.value)} ></input>
+            placeholder="Search By Name"
+            value={name}
+            onInput={e => setName(e.target.value)} ></input>
           <input 
             type="number"
             value={distance}
@@ -66,14 +57,12 @@ const FilterSidebar = ({
             value={category}
             onChange={e => setCategory(e.target.value)} >
               <option key="Any" value="Any">Any</option>
-              {
-                categories.map((cat) => (
-                  <option key={cat.value} value={cat.value}>{cat.value}</option>
-                ))
-              }
+              <option key="Male" value="Male">Male</option>
+              <option key="Female" value="Female">Female</option>
+              <option key="Other" value="Other">Other</option>
           </select>
           <button
-            onClick={() =>{filterListings()}}
+            onClick={() =>{filterTraders()}}
           >
             Filter
           </button>

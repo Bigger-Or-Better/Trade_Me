@@ -3,27 +3,27 @@
 
 //min-width:0
 @mixin mobListings{
-  // .filterSidebar{
-  //   position:relative;
-  //   .db-sidebar{
-  //     position:fixed;
-  //     display:flex;
-  //     flex-direction:column;
-  //     border: 1px solid #AFAFAF;
-  //     input,select,button{
-  //       margin:0.5rem 0;
-  //       padding: 0.25rem;
-  //     }
-  //     button{
-  //       background-color: #F0002A;
-  //       color:white;
-  //       transition: 0.25s;
-  //       &:hover, &:active {
-  //         background-color: #AF0000;
-  //       }
-  //     }
-  //   }
-  // }
+  .filterSidebar{
+    position: relative;
+    .db-sidebar{
+      display:flex;
+      flex-direction:column;
+      border: 1px solid #AFAFAF;
+      input,select,button{
+        margin:0.5rem 0;
+        padding: 0.25rem;
+        border: 1px solid #AFAFAF;
+      }
+      button{
+        background-color: #F0002A;
+        color:white;
+        transition: 0.25s;
+        &:hover, &:active {
+          background-color: #AF0000;
+        }
+      }
+    }
+  }
   .listingCard_area{
     .row{
       .col-md-6{
@@ -69,23 +69,11 @@
 //min-width:1200px
 @mixin maxListings{
     .filterSidebar{
-    position:relative;
     .db-sidebar{
       position:fixed;
-      display:flex;
-      flex-direction:column;
-      border: 1px solid #AFAFAF;
       input,select,button{
-        margin:0.5rem 0;
-        padding: 0.25rem;
       }
       button{
-        background-color: #F0002A;
-        color:white;
-        transition: 0.25s;
-        &:hover, &:active {
-          background-color: #AF0000;
-        }
       }
     }
   }
