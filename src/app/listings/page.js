@@ -43,7 +43,7 @@ const page = async ({ searchParams }) => {
 
 	return (
 		<>
-			{/* <PageBanner pageTitle="All Listings" /> */}
+			<PageBanner pageTitle="All Listings" />
 
 			<div className="ptb-100">
 				<div className="container">

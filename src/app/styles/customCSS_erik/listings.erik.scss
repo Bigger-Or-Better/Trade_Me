@@ -3,18 +3,30 @@
 
 //min-width:0
 @mixin mobListings{
-  .filterSidebar{
+  .filterSidebar_listings{
     position: relative;
     .db-sidebar{
       display:flex;
       flex-direction:column;
       border: 1px solid #AFAFAF;
+      padding: 1rem;
+      .filters{
+        display:flex;
+        justify-content: space-between;
+        input,select{
+          margin:0.5rem 0;
+          padding: 0.25rem;
+          border: 1px solid #AFAFAF;
+          width: 30%;
+          height: 2.5rem;
+        }
+      }
       input,select,button{
+      }
+      button{
         margin:0.5rem 0;
         padding: 0.25rem;
         border: 1px solid #AFAFAF;
-      }
-      button{
         background-color: #F0002A;
         color:white;
         transition: 0.25s;
@@ -68,10 +80,15 @@
 @mixin medListings{}
 //min-width:1200px
 @mixin maxListings{
-    .filterSidebar{
+    .filterSidebar_listings{
     .db-sidebar{
-      position:fixed;
-      input,select,button{
+      position:sticky;
+      top:10rem;
+      .filters{
+        flex-direction: column;
+        input,select,button{
+          width: 100%;
+        }
       }
       button{
       }

@@ -1,0 +1,134 @@
+@mixin mobTraders{
+  body{
+    .filterSidebar_traders{
+      // position: relative;
+      position:sticky;
+      top:7.5rem;
+      z-index:1;
+      .db-sidebar{
+        display:flex;
+        flex-direction:column;
+        border: 1px solid #AFAFAF;
+        padding: 1rem;
+      
+        .filters{
+          display:flex;
+          justify-content: space-between;
+          input,select{
+            margin:0.5rem 0;
+            padding: 0.25rem;
+            border: 1px solid #AFAFAF;
+
+            width: 30%;
+            height: 2.5rem;
+          }
+        }
+        input,select,button{
+        }
+        button{
+          margin:0.5rem 0;
+          padding: 0.25rem;
+          border: 1px solid #AFAFAF;
+          background-color: #F0002A;
+          color:white;
+          transition: 0.25s;
+          &:hover, &:active {
+            background-color: #AF0000;
+          }
+        }
+      }
+    }
+    .container.for-shape{
+      padding:0;
+      .section-title{}
+      .traderCards_section{
+        padding:0;
+        display:flex;
+        justify-content: space-between;
+        // align-items: space-evenly;
+        flex-wrap: wrap;
+        .traderCard{
+          padding:0;
+          width: 10rem;
+          border: 1px solid #afafaf;
+          background-color: #f5f5f5;
+          position:relative;
+          margin-bottom: 1rem;
+          .content{
+            flex-direction: column;
+            width: 100%;
+            // padding: 1rem 0rem;
+            figure{
+              margin: 0;
+              width: 100%;
+              height: 7.5rem;
+              display:flex;
+              align-items:center;
+              justify-content: center;
+              position:relative;
+              overflow:hidden;
+              img{
+                position: absolute;
+                // top:0;
+                background-position: center;
+                display:flex;
+                width: 100%;
+                max-width: 125%;
+              }
+            }
+            .trader-info{
+              padding: 0.5rem 1rem;
+              text-align:center;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+//min-width:760px
+@mixin minTraders{}
+//min-width:992px
+@mixin medTraders{}
+//min-width:1200px
+@mixin maxTraders{
+  body{
+    .filterSidebar_traders{
+      
+      &.col-lg-3{
+        width: 100%;
+      }
+      .db-sidebar{
+        .filters{
+          input,select{
+          }
+        }
+        input,select,button{
+        }
+        button{
+
+          &:hover, &:active {
+          }
+        }
+      }
+    }
+    .container.for-shape{
+      .section-title{}
+      .traderCards_section{
+        .traderCard{
+          width: 15rem;
+          .content{
+            figure{
+              height: 12.5rem;
+              img{
+                width: 125%;
+              }
+            }
+            .trader-info{
+            }
+          }
+        }
+      }
+    }
+  }
+}
