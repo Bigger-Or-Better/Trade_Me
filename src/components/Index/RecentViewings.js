@@ -18,11 +18,11 @@ const RecentViewings = ({ currentUser }) => {
       await axios
         .get(`/api/listings/variousListings?list=${currentUser.myHistory}`)
         .then((response) => {
-          setListings(response.data);
+          setListings(response.data.filter(item => ((item.price==0)&&(item.userId !== currentUser.id))));
           checkHistory(response.data);
         })
         .catch((error) => {
-          toast.error("Something went wromg!");
+          toast.error("Something went wrong!");
           console.log(error);
         });
     };

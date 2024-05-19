@@ -16,7 +16,7 @@ const Suggestions = ({ currentUser }) => {
 			await axios
 				.get(`/api/listings/featured?category=mostRecent`)
 				.then((response) => {
-					setListings(response.data);
+					setListings(response.data.filter(item => ((item.price==0)&&(item.userId !== currentUser.id))));
 				})
 				.catch((error) => {
 					toast.error("Something went wromg!");

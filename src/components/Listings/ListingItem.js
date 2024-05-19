@@ -27,8 +27,9 @@ const ListingItem = ({
 ) => {
 	// console.log(title);
 	return (
-		<div className="col-md-6 col-xl-3 mb-4">
+		<div className="col-md-6 col-xl-3 mb-4 listing-card-single">
 			<div className="db-listing-card card">
+				<figure>
 				<Image
 					src={imageSrc}
 					className="card-img-top"
@@ -36,6 +37,7 @@ const ListingItem = ({
 					width={300}
 					height={300}
 				/>
+				</figure>
 				<div className="card-body">
 					<h6 className="card-title">{title}</h6>
 
