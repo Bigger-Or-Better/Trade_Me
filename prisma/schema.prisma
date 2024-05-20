@@ -39,7 +39,6 @@ model Profile {
   bio     String? @db.Text
   gender  String?
   address String?
-  phone   String?
   user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
