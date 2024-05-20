@@ -24,7 +24,7 @@ const ListingFeatures = ({currentUser, allTradeListings, searchParams}) => {
   
   return(
     <div className="row">
-      <div className="col-lg-3 filterSidebar">
+      <div className="col-lg-3 filterSidebar_listings">
         <FilterSideBar 
           allTradeListings = {allTradeListings}
           currentUser = {currentUser}

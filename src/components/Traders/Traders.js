@@ -50,20 +50,21 @@ const Traders = ({ viewableTraders, currentUser }) => {
 	// });
 	return (
 		// <h1>Hellow</h1>
-		<div className="location-area ptb-100">
+		<div className="traderArea">
 			<div className="container for-shape">
 				<div className="section-title">
 					<h2>Fellow Traders</h2>
 				</div>
 
-				<div className="row justify-content-center">
+				<div className="traderCards_section">
 					{/* Put for Loop here ` */}
 
 		
 					{
 						viewableTraders.map(trader => (
-							<div key ={trader.id} className="col-lg-4 col-sm-6">
-								<div className="single-location d-flex align-items-center">
+							<div key ={trader.id} className="traderCard">
+								<div className="d-flex align-items-center content">
+									<figure>
 									{
 										trader.image ?
 											<Image
@@ -80,11 +81,14 @@ const Traders = ({ viewableTraders, currentUser }) => {
 											alt="locations"
 											/>
 									}
+									</figure>
 									
 
-									<div className="location-content">
+									<div className="trader-info">
 										<h3>{shortenText(trader.name, 10)}</h3>
-										<span>New York Upper West Side </span>
+										<span>Location</span><br/>
+										<span># of Trades</span>
+										{/* <span>New York Upper West Side </span> */}
 
 										{/* <ul>
 											<li>

@@ -38,7 +38,7 @@ const TradersFeatures = (
   return(
 
     <div className="row">
-    <div className="col-lg-3 filterSidebar">
+    <div className="filterSidebar_traders">
       <FilterSideBar 
         allUsers = {allUsers}
         currentUser = {currentUser}
