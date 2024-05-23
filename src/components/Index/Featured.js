@@ -15,7 +15,12 @@ const Featured = ({ currentUser }) => {
 			await axios
 				.get(`/api/listings/featured?category=mostRecent`)
 				.then((response) => {
-					setListings(response.data);
+					if (currentUser){
+						setListings(response.data.filter(item => ((item.price==0)&&(item.userId !== currentUser.id))));
+					}
+					else{
+						setListings(response.data.filter(item => (item.price==0)));
+					}
 				})
 				.catch((error) => {
 					toast.error("Something went wromg!");

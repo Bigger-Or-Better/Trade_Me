@@ -270,47 +270,160 @@
   .bg-right-sidebar .MyPayPal div > div > div:nth-child(2) {
     display: none !important;
   }
-  .filterSidebar {
+  .filterSidebar_listings {
     position: relative;
   }
-  .filterSidebar .db-sidebar {
+  .filterSidebar_listings .db-sidebar {
     display: flex;
     flex-direction: column;
     border: 1px solid #AFAFAF;
+    padding: 1rem;
   }
-  .filterSidebar .db-sidebar input, .filterSidebar .db-sidebar select, .filterSidebar .db-sidebar button {
+  .filterSidebar_listings .db-sidebar .filters {
+    display: flex;
+    justify-content: space-between;
+  }
+  .filterSidebar_listings .db-sidebar .filters input, .filterSidebar_listings .db-sidebar .filters select {
     margin: 0.5rem 0;
     padding: 0.25rem;
     border: 1px solid #AFAFAF;
+    width: 30%;
+    height: 2.5rem;
   }
-  .filterSidebar .db-sidebar button {
+  .filterSidebar_listings .db-sidebar button {
+    margin: 0.5rem 0;
+    padding: 0.25rem;
+    border: 1px solid #AFAFAF;
     background-color: #F0002A;
     color: white;
     transition: 0.25s;
   }
-  .filterSidebar .db-sidebar button:hover, .filterSidebar .db-sidebar button:active {
+  .filterSidebar_listings .db-sidebar button:hover, .filterSidebar_listings .db-sidebar button:active {
     background-color: #AF0000;
   }
-  .listingCard_area .row .col-md-6 .db-listing-card .card-body .row {
+  .listingCard_area .row .listing-card-single {
+    width: 50%;
+  }
+  .listingCard_area .row .listing-card-single .db-listing-card figure {
+    width: 100%;
+    height: 10rem;
+    overflow: hidden;
+    position: relative;
+  }
+  .listingCard_area .row .listing-card-single .db-listing-card figure .card-img-top {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 175%;
+    max-width: 200%;
+  }
+  .listingCard_area .row .listing-card-single .db-listing-card .card-body {
+    padding: 0.5rem;
+  }
+  .listingCard_area .row .listing-card-single .db-listing-card .card-body .row {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
   }
-  .listingCard_area .row .col-md-6 .db-listing-card .card-body .row .btn {
+  .listingCard_area .row .listing-card-single .db-listing-card .card-body .row .btn {
     background-color: #F0002A;
     border: none;
-    width: 75%;
+    width: 50%;
+    font-size: 0.75rem;
   }
-  .listingCard_area .row .col-md-6 .db-listing-card .card-body .row .btn:hover, .listingCard_area .row .col-md-6 .db-listing-card .card-body .row .btn:active {
+  .listingCard_area .row .listing-card-single .db-listing-card .card-body .row .btn:hover, .listingCard_area .row .listing-card-single .db-listing-card .card-body .row .btn:active {
     background-color: #AF0000;
   }
-  .listingCard_area .row .col-md-6 .db-listing-card .card-body .row .wish-btn {
+  .listingCard_area .row .listing-card-single .db-listing-card .card-body .row .wish-btn {
     background-color: transparent;
     width: -moz-fit-content;
     width: fit-content;
   }
-  .listingCard_area .row .col-md-6 .db-listing-card .card-body .row .wish-btn .ri-heart-fill {
+  .listingCard_area .row .listing-card-single .db-listing-card .card-body .row .wish-btn .ri-heart-fill {
     color: #F0002A;
+  }
+  body .filterSidebar_traders {
+    position: sticky;
+    top: 7.5rem;
+    z-index: 1;
+  }
+  body .filterSidebar_traders .db-sidebar {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #AFAFAF;
+    padding: 0.5rem;
+  }
+  body .filterSidebar_traders .db-sidebar .filters {
+    display: flex;
+    justify-content: space-between;
+  }
+  body .filterSidebar_traders .db-sidebar .filters input, body .filterSidebar_traders .db-sidebar .filters select {
+    margin: 0.5rem 0;
+    padding: 0.25rem;
+    border: 1px solid #AFAFAF;
+    width: 30%;
+    height: 2.5rem;
+  }
+  body .filterSidebar_traders .db-sidebar button {
+    margin: 0.5rem 0 0.5rem 1rem;
+    padding: 0.25rem;
+    border: 1px solid #AFAFAF;
+    background-color: #F0002A;
+    color: white;
+    transition: 0.25s;
+  }
+  body .filterSidebar_traders .db-sidebar button:hover, body .filterSidebar_traders .db-sidebar button:active {
+    background-color: #AF0000;
+  }
+  body .container.for-shape {
+    padding: 0;
+  }
+  body .container.for-shape .traderCards_section {
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  body .container.for-shape .traderCards_section .traderCard {
+    padding: 0;
+    width: 7.5rem;
+    border: 1px solid #afafaf;
+    background-color: #f5f5f5;
+    position: relative;
+    margin-bottom: 1rem;
+  }
+  body .container.for-shape .traderCards_section .traderCard .content {
+    flex-direction: column;
+    width: 100%;
+  }
+  body .container.for-shape .traderCards_section .traderCard .content figure {
+    margin: 0;
+    width: 100%;
+    height: 7.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  body .container.for-shape .traderCards_section .traderCard .content figure img {
+    position: absolute;
+    background-position: center;
+    display: flex;
+    width: 100%;
+    max-width: 125%;
+  }
+  body .container.for-shape .traderCards_section .traderCard .content .trader-info {
+    padding: 0.5rem 1rem;
+    text-align: center;
+  }
+  body .container.for-shape .traderCards_section .traderCard .content .trader-info h3 {
+    font-size: calc(1rem + 0.6vw);
+    margin: 0;
+  }
+  body .container.for-shape .traderCards_section .traderCard .content .trader-info span {
+    font-size: calc(0.5rem + 0.6vw);
   }
 }
 @media all and (min-width: 760px) {
@@ -334,6 +447,16 @@
   }
   .offer-area {
     padding: 60px 30px 0 30px;
+  }
+  body .filterSidebar_traders .db-sidebar .filters {
+    width: 90%;
+  }
+  body .filterSidebar_traders .db-sidebar .filters input, body .filterSidebar_traders .db-sidebar .filters select {
+    width: 30%;
+  }
+  body .filterSidebar_traders .db-sidebar button {
+    width: 10%;
+    margin: 0.5rem 0 0.5rem 1rem;
   }
 }
 @media all and (min-width: 992px) {
@@ -445,7 +568,34 @@
   .offer-area.featured-ads .container .section-title-wrap .section-title-right ul li button {
     padding: 10px 15px;
   }
-  .filterSidebar .db-sidebar {
-    position: fixed;
+  .filterSidebar_listings .db-sidebar {
+    position: sticky;
+    top: 10rem;
+  }
+  .filterSidebar_listings .db-sidebar .filters {
+    flex-direction: column;
+  }
+  .filterSidebar_listings .db-sidebar .filters input, .filterSidebar_listings .db-sidebar .filters select, .filterSidebar_listings .db-sidebar .filters button {
+    width: 100%;
+  }
+  body .filterSidebar_traders.col-lg-3 {
+    width: 100%;
+  }
+  body .filterSidebar_traders .db-sidebar {
+    width: 75%;
+    margin: 0 auto;
+  }
+  body .container.for-shape .traderCards_section {
+    width: 80%;
+    margin: 0 auto;
+  }
+  body .container.for-shape .traderCards_section .traderCard {
+    width: 10rem;
+  }
+  body .container.for-shape .traderCards_section .traderCard .content figure {
+    height: 12.5rem;
+  }
+  body .container.for-shape .traderCards_section .traderCard .content figure img {
+    width: 125%;
   }
 }/*# sourceMappingURL=customCSS_erik.css.map */

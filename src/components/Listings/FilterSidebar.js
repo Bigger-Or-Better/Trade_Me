@@ -51,27 +51,29 @@ const FilterSidebar = ({
     return (
       <>
         <div className="db-sidebar">
-          <input 
-            type="text" 
-            placeholder="Search Listings"
-            value={title}
-            onInput={e => setTitle(e.target.value)} ></input>
-          <input 
-            type="number"
-            value={distance}
-            placeholder="Distance"
-            min={0}
-            onInput={e => setDistance(e.target.value)}></input>
-          <select
-            value={category}
-            onChange={e => setCategory(e.target.value)} >
-              <option key="Any" value="Any">Any</option>
-              {
-                categories.map((cat) => (
-                  <option key={cat.value} value={cat.value}>{cat.value}</option>
-                ))
-              }
-          </select>
+          <div class="filters">
+            <input 
+              type="text" 
+              placeholder="Search Listings"
+              value={title}
+              onInput={e => setTitle(e.target.value)} ></input>
+            <input 
+              type="number"
+              value={distance}
+              placeholder="Distance"
+              min={0}
+              onInput={e => setDistance(e.target.value)}></input>
+            <select
+              value={category}
+              onChange={e => setCategory(e.target.value)} >
+                <option key="Any" value="Any">Any</option>
+                {
+                  categories.map((cat) => (
+                    <option key={cat.value} value={cat.value}>{cat.value}</option>
+                  ))
+                }
+            </select>
+          </div>
           <button
             onClick={() =>{filterListings()}}
           >

@@ -3,75 +3,157 @@
 
 //min-width:0
 @mixin mobListings{
-  .filterSidebar{
-    position: relative;
-    .db-sidebar{
-      display:flex;
-      flex-direction:column;
-      border: 1px solid #AFAFAF;
-      input,select,button{
-        margin:0.5rem 0;
-        padding: 0.25rem;
+  body{
+    .filterSidebar_listings{
+      position: relative;
+      .db-sidebar{
+        display:flex;
+        flex-direction:column;
         border: 1px solid #AFAFAF;
-      }
-      button{
-        background-color: #F0002A;
-        color:white;
-        transition: 0.25s;
-        &:hover, &:active {
-          background-color: #AF0000;
+        padding: 1rem;
+        .filters{
+          display:flex;
+          justify-content: space-between;
+          input,select{
+            margin:0.5rem 0;
+            padding: 0.25rem;
+            border: 1px solid #AFAFAF;
+            width: 30%;
+            height: 2.5rem;
+          }
+        }
+        input,select,button{
+        }
+        button{
+          margin:0.5rem 0;
+          padding: 0.25rem;
+          border: 1px solid #AFAFAF;
+          background-color: #F0002A;
+          color:white;
+          transition: 0.25s;
+          &:hover, &:active {
+            background-color: #AF0000;
+          }
         }
       }
     }
-  }
-  .listingCard_area{
-    .row{
-      .col-md-6{
-        .db-listing-card{
-          .card-img-top{}
-          .card-body{
-            .card-title{}
-            .fs-4{}
-            .row{
-              display:flex;
-              flex-direction:row;
-              justify-content:space-evenly;
-              .btn{
-                background-color: #F0002A;
-                border:none;
-                width: 75%;
-                &:hover,&:active{
-                  background-color: #AF0000;
-                }
+    .listingCard_area{
+      .row{
+        .listing-card-single{
+          width: 50%;
+          .db-listing-card{
+            figure{
+              width: 100%;
+              height: 10rem;
+              overflow:hidden;
+              position:relative;
+              .card-img-top{
+                position:absolute;
+                top:50%;
+                left:50%;
+                transform: translate(-50%, -50%);
+                // height: 15rem;
+                width: 175%;
+                max-width: 200%;
               }
-              .wish-btn{
-                background-color: transparent;
-                width: fit-content;
-                .ri-heart-fill{
-                  color:#F0002A
+            }
+            .card-body{
+              padding: 0.5rem;
+              .card-title{}
+              .fs-4{}
+              .row{
+                display:flex;
+                flex-direction:row;
+                justify-content:space-evenly;
+                .btn{
+                  background-color: #F0002A;
+                  border:none;
+                  width: 50%;
+                  font-size: 0.75rem;
+                  &:hover,&:active{
+                    background-color: #AF0000;
+                  }
                 }
-                .ri-heart-line{
-                  // color:transparent;
+                .wish-btn{
+                  background-color: transparent;
+                  width: fit-content;
+                  .ri-heart-fill{
+                    color:#F0002A
+                  }
+                  .ri-heart-line{
+                    // color:transparent;
+                  }
                 }
               }
             }
+  
           }
-
         }
       }
     }
   }
 }
 //min-width:760px
-@mixin minListings{}
+@mixin minListings{
+  body{
+    .filterSidebar_listings{
+      .db-sidebar{
+        .filters{
+          input,select{
+          }
+        }
+        input,select,button{
+        }
+        button{
+          &:hover, &:active {
+          }
+        }
+      }
+    }
+    .listingCard_area{
+      .row{
+        .listing-card-single{
+          .db-listing-card{
+            figure{
+              .card-img-top{
+              }
+            }
+            .card-body{
+              .card-title{}
+              .fs-4{}
+              .row{
+                .btn{
+                  &:hover,&:active{
+                  }
+                }
+                .wish-btn{
+                  .ri-heart-fill{
+                  }
+                  .ri-heart-line{
+                  }
+                }
+              }
+            }
+  
+          }
+        }
+      }
+    }
+  }
+}
 //min-width:992px
 @mixin medListings{}
 //min-width:1200px
 @mixin maxListings{
-    .filterSidebar{
+    .filterSidebar_listings{
     .db-sidebar{
-      position:fixed;
-      input,select,button{
+      position:sticky;
+      top:10rem;
+      .filters{
+        flex-direction: column;
+        input,select,button{
+          width: 100%;
+        }
       }
       button{
       }

@@ -42,25 +42,27 @@ const FilterSidebar = ({
     return (
       <>
         <div className="db-sidebar">
-          <input 
-            type="text" 
-            placeholder="Search By Name"
-            value={name}
-            onInput={e => setName(e.target.value)} ></input>
-          <input 
-            type="number"
-            value={distance}
-            placeholder="Distance"
-            min={0}
-            onInput={e => setDistance(e.target.value)}></input>
-          <select
-            value={category}
-            onChange={e => setCategory(e.target.value)} >
-              <option key="Any" value="Any">Any</option>
-              <option key="Male" value="Male">Male</option>
-              <option key="Female" value="Female">Female</option>
-              <option key="Other" value="Other">Other</option>
-          </select>
+          <div class="filters">
+            <input 
+              type="text" 
+              placeholder="Search By Name"
+              value={name}
+              onInput={e => setName(e.target.value)} ></input>
+            <input 
+              type="number"
+              value={distance}
+              placeholder="Distance"
+              min={0}
+              onInput={e => setDistance(e.target.value)}></input>
+            <select
+              value={category}
+              onChange={e => setCategory(e.target.value)} >
+                <option key="Any" value="Any">Any</option>
+                <option key="Male" value="Male">Male</option>
+                <option key="Female" value="Female">Female</option>
+                <option key="Other" value="Other">Other</option>
+            </select>
+          </div>
           <button
             onClick={() =>{filterTraders()}}
           >
